@@ -286,3 +286,40 @@ Processing by PortfoliosController#destroy as */*
 Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 5.5ms)
 
 
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-09 19:32:51 -0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (0.6ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 21ms (Views: 13.4ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-09 19:33:29 -0400
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (1.2ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 149ms (Views: 13.4ms | ActiveRecord: 135.6ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-09 19:34:29 -0400
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-09 19:36:17 -0400
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (4.0ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 22ms (Views: 17.6ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-09 19:36:26 -0400
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (3.1ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 8ms (Views: 4.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-09 19:36:39 -0400
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.4ms)
+
+
