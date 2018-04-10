@@ -8,7 +8,7 @@ class Services {
 
   getLatestData(input) {
     // return axios.get('/api/portfolio/update')
-    return axios.get(`https://www.quandl.com/api/v3/datasets/EOD/${input}.json?limit=1&api_key=9hgSRDpcxYf-n2xs7WVz`)
+    return axios.get(`https://www.quandl.com/api/v3/datasets/EOD/${input}.json?limit=1&api_key=-zxmVteaSiZjzxyvdkU`)
   }
 
   updateData(input) {
@@ -24,6 +24,10 @@ class Services {
 
   search(ticker) {
     return axios.get(`/api/search/${ticker}`)
+  }
+
+  getChart(ticker) {
+    return axios.get(`https://www.quandl.com/api/v3/datasets/EOD/${ticker}.json?api_key=-zxmVteaSiZjzxyvdkU`)
   }
 
 //  getSinglePortfolio() {

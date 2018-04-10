@@ -9,6 +9,7 @@ import {
 import App from './App';
 import Portfolio from './components/Portfolio'
 import Search from './components/Search'
+import ViewStock from './components/ViewStock'
 
 export default (
   <Router>
@@ -16,6 +17,7 @@ export default (
       <Route exact path="/" component={App}/>
       <Route exact path="/portfolio" component={Portfolio}/>
       <Route exact path="/search" component={Search}/>
+      <Route path='/stock/:ticker' component={ViewStock}/>
     </Switch>
   </Router>
 )
