@@ -7,7 +7,19 @@ class Services {
   }
 
   getLatestData(input) {
+    // return axios.get('/api/portfolio/update')
     return axios.get(`https://www.quandl.com/api/v3/datasets/EOD/${input}.json?limit=1&api_key=9hgSRDpcxYf-n2xs7WVz`)
+  }
+
+  updateData(input) {
+    axios({
+      method: 'put',
+      url: `/api/portfolio/${input.dataset_code}`,
+      data: {
+        ticker: input.dataset_code,
+        current_price: input.data[0][11]
+      }
+    });
   }
 
 //  getSinglePortfolio() {

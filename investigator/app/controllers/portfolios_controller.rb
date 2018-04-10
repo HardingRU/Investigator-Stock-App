@@ -35,8 +35,8 @@ def create
   end
 
   def update
-    @portfolio = Portfolio.find(params[:id])
-    @portfolio.update(portfolio_params)
+    @portfolio = Portfolio.find_by ticker: params[:id]
+    @portfolio.update(portfolio_params_update)
     render json: {
       message: "updated",
       data: @portfolio
@@ -45,8 +45,14 @@ def create
 
   private
   def portfolio_params
-      params.require(:portfolios).permit(:user_id, :ticker, :stock_name, :exchange,
+      params.require(:portfolio).permit(:user_id, :ticker, :stock_name, :exchange,
                                          :shares_owend, :purchase_price, :current_price)
+  end
+
+  def portfolio_params_update
+      puts "params"
+      puts params
+      params.require(:portfolio).permit(:ticker, :current_price)
   end
 
 end

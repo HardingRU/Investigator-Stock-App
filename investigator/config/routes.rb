@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get "api/portfolio/:id", to: "portfolios#show"
   post "api/portfolio", to: "portfolios#create"
   delete "api/portfolio/:id", to: "portfolios#destroy"
-  put "api/portfolio/:id", to: "portfolos#update"
+  put "api/portfolio/:id", to: "portfolios#update"
 
   #resource :portfolio, path: "api/portfolio"
 
