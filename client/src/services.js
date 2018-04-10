@@ -22,6 +22,10 @@ class Services {
     });
   }
 
+  search(ticker) {
+    return axios.get(`/api/search/${ticker}`)
+  }
+
 //  getSinglePortfolio() {
 //    return axios.get(`/api/portfolio${id}`);
 //  }

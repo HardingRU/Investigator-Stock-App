@@ -26486,3 +26486,208 @@ Migrating to CreateSearches (20180410131804)
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "searches" ("search_ticker", "search_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["search_ticker", "ZYNE"], ["search_name", "Zynerba Pharmaceuticals Inc."], ["created_at", "2018-04-10 13:27:45.816821"], ["updated_at", "2018-04-10 13:27:45.816821"]]
   [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-10 10:05:29 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (1.5ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 69ms (Views: 24.3ms | ActiveRecord: 28.2ms)
+
+
+Started PUT "/api/portfolio/AAPL" for 127.0.0.1 at 2018-04-10 10:05:29 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"AAPL", "current_price"=>170.05, "id"=>"AAPL", "portfolio"=>{"ticker"=>"AAPL", "current_price"=>170.05}}
+  [1m[36mPortfolio Load (0.5ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "AAPL"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 10ms (Views: 0.9ms | ActiveRecord: 1.1ms)
+
+
+Started PUT "/api/portfolio/MSFT" for 127.0.0.1 at 2018-04-10 10:05:29 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"MSFT", "current_price"=>90.77, "id"=>"MSFT", "portfolio"=>{"ticker"=>"MSFT", "current_price"=>90.77}}
+  [1m[36mPortfolio Load (0.6ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "MSFT"], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 1.8ms)
+
+
+Started PUT "/api/portfolio/TSLA" for 127.0.0.1 at 2018-04-10 10:05:32 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"TSLA", "current_price"=>289.66, "id"=>"TSLA", "portfolio"=>{"ticker"=>"TSLA", "current_price"=>289.66}}
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "TSLA"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-10 10:16:37 -0400
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-10 10:16:37 -0400
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (0.8ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.8ms)
+
+
+Started PUT "/api/portfolio/AAPL" for 127.0.0.1 at 2018-04-10 10:16:38 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"AAPL", "current_price"=>170.05, "id"=>"AAPL", "portfolio"=>{"ticker"=>"AAPL", "current_price"=>170.05}}
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "AAPL"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.5ms)
+
+
+Started PUT "/api/portfolio/TSLA" for 127.0.0.1 at 2018-04-10 10:16:41 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"TSLA", "current_price"=>289.66, "id"=>"TSLA", "portfolio"=>{"ticker"=>"TSLA", "current_price"=>289.66}}
+  [1m[36mPortfolio Load (0.7ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "TSLA"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-10 10:18:44 -0400
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.4ms)
+
+
+Started PUT "/api/portfolio/MSFT" for 127.0.0.1 at 2018-04-10 10:18:44 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"MSFT", "current_price"=>90.77, "id"=>"MSFT", "portfolio"=>{"ticker"=>"MSFT", "current_price"=>90.77}}
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "MSFT"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.7ms)
+
+
+Started PUT "/api/portfolio/AAPL" for 127.0.0.1 at 2018-04-10 10:18:47 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"AAPL", "current_price"=>170.05, "id"=>"AAPL", "portfolio"=>{"ticker"=>"AAPL", "current_price"=>170.05}}
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "AAPL"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-10 10:19:07 -0400
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.4ms)
+
+
+Started PUT "/api/portfolio/TSLA" for 127.0.0.1 at 2018-04-10 10:19:08 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"TSLA", "current_price"=>289.66, "id"=>"TSLA", "portfolio"=>{"ticker"=>"TSLA", "current_price"=>289.66}}
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "TSLA"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 0.7ms)
+
+
+Started PUT "/api/portfolio/AAPL" for 127.0.0.1 at 2018-04-10 10:19:11 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"AAPL", "current_price"=>170.05, "id"=>"AAPL", "portfolio"=>{"ticker"=>"AAPL", "current_price"=>170.05}}
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "AAPL"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-10 10:20:47 -0400
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (1.9ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 1.9ms)
+
+
+Started PUT "/api/portfolio/MSFT" for 127.0.0.1 at 2018-04-10 10:20:47 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"MSFT", "current_price"=>90.77, "id"=>"MSFT", "portfolio"=>{"ticker"=>"MSFT", "current_price"=>90.77}}
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "MSFT"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.7ms)
+
+
+Started PUT "/api/portfolio/AAPL" for 127.0.0.1 at 2018-04-10 10:20:50 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"AAPL", "current_price"=>170.05, "id"=>"AAPL", "portfolio"=>{"ticker"=>"AAPL", "current_price"=>170.05}}
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "AAPL"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-10 10:20:51 -0400
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (0.5ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.5ms)
+
+
+Started PUT "/api/portfolio/MSFT" for 127.0.0.1 at 2018-04-10 10:20:52 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"MSFT", "current_price"=>90.77, "id"=>"MSFT", "portfolio"=>{"ticker"=>"MSFT", "current_price"=>90.77}}
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "MSFT"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.5ms)
+
+
+Started PUT "/api/portfolio/AAPL" for 127.0.0.1 at 2018-04-10 10:20:55 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"AAPL", "current_price"=>170.05, "id"=>"AAPL", "portfolio"=>{"ticker"=>"AAPL", "current_price"=>170.05}}
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "AAPL"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 7ms (Views: 1.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-10 10:21:58 -0400
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (0.9ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.9ms)
+
+
+Started PUT "/api/portfolio/MSFT" for 127.0.0.1 at 2018-04-10 10:21:58 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"MSFT", "current_price"=>90.77, "id"=>"MSFT", "portfolio"=>{"ticker"=>"MSFT", "current_price"=>90.77}}
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "MSFT"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 0.7ms)
+
+
+Started PUT "/api/portfolio/TSLA" for 127.0.0.1 at 2018-04-10 10:22:01 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"TSLA", "current_price"=>289.66, "id"=>"TSLA", "portfolio"=>{"ticker"=>"TSLA", "current_price"=>289.66}}
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "TSLA"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 7ms (Views: 0.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/api/search/Apple" for 127.0.0.1 at 2018-04-10 10:23:01 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"Apple"}
+  [1m[36mSearch Load (79.6ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%Apple%')[0m
+Completed 200 OK in 175ms (Views: 67.6ms | ActiveRecord: 103.8ms)
+
+
+Started GET "/api/search/Apple" for 127.0.0.1 at 2018-04-10 10:24:16 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"Apple"}
+  [1m[36mSearch Load (26.9ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%Apple%')[0m
+Completed 200 OK in 35ms (Views: 7.9ms | ActiveRecord: 26.9ms)
+
+
+Started GET "/api/search/Apple" for 127.0.0.1 at 2018-04-10 10:27:11 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"Apple"}
+  [1m[36mSearch Load (15.8ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%Apple%')[0m
+Completed 200 OK in 86ms (Views: 69.8ms | ActiveRecord: 15.8ms)
+
+

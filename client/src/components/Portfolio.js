@@ -1,8 +1,7 @@
 
 import React, { Component }from 'react';
 import Services from '../services';
-// services not inside of the components dir
-import Stock from './PortfolioSingle' // we'll create this component in a second
+import Stock from './PortfolioSingle'
 
 class Portfolio extends Component {
   constructor() {
@@ -45,12 +44,8 @@ class Portfolio extends Component {
       });
   }
 
-  renderSongs() {
+  renderStocks() {
     return this.state.apiData.map(stock => <Stock {...stock} key={stock.id}/>)
-    // fancy ES6 Destructuring here
-    // like cracking an egg, this makes all the keys
-    // inside of the song object will be available to the
-    // song component as props
   }
 
   render() {
@@ -58,7 +53,7 @@ class Portfolio extends Component {
       <div className="song-list">
       {
         this.state.apiDataLoaded
-        ? this.renderSongs()
+        ? this.renderStocks()
 
         : <h1>Loading...</h1>
       }
