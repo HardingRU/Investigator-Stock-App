@@ -22,6 +22,16 @@ class Portfolio extends Component {
           apiData: data.data.data,
         });
         console.log(this.state.apiData)
+
+        for (let i=0; i<this.state.apiData.length; i++) {
+          Services.getLatestData(this.state.apiData[i].ticker)
+          .then(data2 => {
+            console.log(data2)
+          })
+          .catch(err => {
+            console.log('error': err)
+          })
+        }
       })
       .catch(err => {
         console.log('error': err);

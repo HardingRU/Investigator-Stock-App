@@ -323,3 +323,51 @@ Processing by PortfoliosController#index as HTML
 Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-09 21:28:32 -0400
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (0.9ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-09 21:29:49 -0400
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (0.8ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-09 21:32:47 -0400
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (112.5ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 148ms (Views: 35.6ms | ActiveRecord: 112.5ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-09 21:33:58 -0400
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (0.5ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-09 21:34:22 -0400
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (0.8ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-09 21:35:04 -0400
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (1.6ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-09 21:35:31 -0400
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (0.5ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-09 21:39:22 -0400
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (0.5ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.5ms)
+
+
