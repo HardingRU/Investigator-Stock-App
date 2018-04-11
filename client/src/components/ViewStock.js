@@ -15,6 +15,7 @@ class ViewStock extends Component {
     this.storeData = this.storeData.bind(this);
     this.renderChart = this.renderChart.bind(this);
     this.renderData = this.renderData.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
   }
 
   storeData(input) {
@@ -44,6 +45,10 @@ class ViewStock extends Component {
       chartData: tempChart,
       apiDataLoaded: true
     })
+  }
+
+  handleRemove(e) {
+    console.log("inside remove")
   }
 
   componentDidMount() {
@@ -86,14 +91,11 @@ class ViewStock extends Component {
     return rowList;
   }
 
-  renderAll() {
-    this.renderData()
-    this.renderChart()
-  }
 
   render() {
     return (
       <div>
+        <div><button name={this.props.match.params.ticker} onClick={this.handleRemove}>Add to Portfolio</button></div>
         <div> {this.state.apiDataLoaded ? this.renderChart() : <h1>Loading...</h1>} </div>
         <div> {this.state.apiDataLoaded ? this.renderData() : <h1></h1>} </div>
       </div>
