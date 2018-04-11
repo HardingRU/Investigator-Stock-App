@@ -26812,3 +26812,204 @@ puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
 puma (3.11.3) lib/puma/server.rb:438:in `process_client'
 puma (3.11.3) lib/puma/server.rb:302:in `block in run'
 puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-10 14:15:51 -0400
+Processing by PortfoliosController#index as HTML
+  [1m[36mPortfolio Load (0.6ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.6ms)
+
+
+Started PUT "/api/portfolio/MSFT" for 127.0.0.1 at 2018-04-10 14:15:51 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"MSFT", "current_price"=>90.77, "id"=>"MSFT", "portfolio"=>{"ticker"=>"MSFT", "current_price"=>90.77}}
+  [1m[36mPortfolio Load (1.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "MSFT"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 1.7ms)
+
+
+Started PUT "/api/portfolio/TSLA" for 127.0.0.1 at 2018-04-10 14:15:51 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"TSLA", "current_price"=>289.66, "id"=>"TSLA", "portfolio"=>{"ticker"=>"TSLA", "current_price"=>289.66}}
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "TSLA"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 0.9ms)
+
+
+Started PUT "/api/portfolio/AAPL" for 127.0.0.1 at 2018-04-10 14:15:55 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"AAPL", "current_price"=>170.05, "id"=>"AAPL", "portfolio"=>{"ticker"=>"AAPL", "current_price"=>170.05}}
+  [1m[36mPortfolio Load (0.7ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "AAPL"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/search/Apple" for 127.0.0.1 at 2018-04-10 20:50:09 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"Apple"}
+  [1m[36mSearch Load (38.7ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%Apple%')[0m
+Completed 200 OK in 97ms (Views: 53.2ms | ActiveRecord: 38.7ms)
+
+
+Started GET "/api/search/Apple" for 127.0.0.1 at 2018-04-11 08:26:41 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"Apple"}
+  [1m[36mSearch Load (49.6ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%Apple%')[0m
+Completed 200 OK in 158ms (Views: 93.5ms | ActiveRecord: 49.6ms)
+
+
+Started GET "/api/search/Apple" for 127.0.0.1 at 2018-04-11 09:18:05 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"Apple"}
+  [1m[36mSearch Load (63.6ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%Apple%')[0m
+Completed 200 OK in 70ms (Views: 6.4ms | ActiveRecord: 63.6ms)
+
+
+Started GET "/api/search/Apple" for 127.0.0.1 at 2018-04-11 09:19:32 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"Apple"}
+  [1m[36mSearch Load (84.2ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%Apple%')[0m
+Completed 200 OK in 92ms (Views: 7.4ms | ActiveRecord: 84.2ms)
+
+
+Started GET "/api/search/Apple" for 127.0.0.1 at 2018-04-11 09:19:40 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"Apple"}
+  [1m[36mSearch Load (4.2ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%Apple%')[0m
+Completed 200 OK in 8ms (Views: 3.5ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/api/search/Apple" for 127.0.0.1 at 2018-04-11 09:20:11 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"Apple"}
+  [1m[36mSearch Load (3.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%Apple%')[0m
+Completed 200 OK in 7ms (Views: 2.6ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/api/search/Apple" for 127.0.0.1 at 2018-04-11 09:20:36 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"Apple"}
+  [1m[36mSearch Load (25.1ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%Apple%')[0m
+Completed 200 OK in 75ms (Views: 49.8ms | ActiveRecord: 25.1ms)
+
+
+Started GET "/api/search/Apple" for 127.0.0.1 at 2018-04-11 09:21:22 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"Apple"}
+  [1m[36mSearch Load (102.5ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%Apple%')[0m
+Completed 200 OK in 114ms (Views: 10.4ms | ActiveRecord: 102.5ms)
+
+
+Started GET "/api/search/Apple" for 127.0.0.1 at 2018-04-11 09:21:30 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"Apple"}
+  [1m[36mSearch Load (3.6ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%Apple%')[0m
+Completed 200 OK in 127ms (Views: 123.4ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/api/search/Apple" for 127.0.0.1 at 2018-04-11 09:21:47 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"Apple"}
+  [1m[36mSearch Load (5.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%Apple%')[0m
+Completed 200 OK in 9ms (Views: 2.9ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/api/search/null" for 127.0.0.1 at 2018-04-11 09:23:17 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"null"}
+  [1m[36mSearch Load (2.8ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%null%')[0m
+Completed 200 OK in 4ms (Views: 1.2ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/api/search/null" for 127.0.0.1 at 2018-04-11 09:23:47 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"null"}
+  [1m[36mSearch Load (2.6ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%null%')[0m
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/api/search/null" for 127.0.0.1 at 2018-04-11 09:24:09 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"null"}
+  [1m[36mSearch Load (3.0ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%null%')[0m
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/search/apple" for 127.0.0.1 at 2018-04-11 09:24:27 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"apple"}
+  [1m[36mSearch Load (2.1ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%apple%')[0m
+Completed 200 OK in 5ms (Views: 2.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/api/search/Apple" for 127.0.0.1 at 2018-04-11 09:24:45 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"Apple"}
+  [1m[36mSearch Load (1.7ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%Apple%')[0m
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/search/netflix" for 127.0.0.1 at 2018-04-11 09:24:55 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"netflix"}
+  [1m[36mSearch Load (2.6ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%netflix%')[0m
+Completed 200 OK in 6ms (Views: 2.8ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/api/search/Apple" for 127.0.0.1 at 2018-04-11 09:26:49 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"Apple"}
+  [1m[36mSearch Load (2.9ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%Apple%')[0m
+Completed 200 OK in 5ms (Views: 2.0ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/api/search/Netflix" for 127.0.0.1 at 2018-04-11 09:26:51 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"Netflix"}
+  [1m[36mSearch Load (2.9ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%Netflix%')[0m
+Completed 200 OK in 5ms (Views: 1.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/api/search/MSFT" for 127.0.0.1 at 2018-04-11 09:27:00 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"MSFT"}
+  [1m[36mSearch Load (1.7ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%MSFT%')[0m
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/search/Microsoft" for 127.0.0.1 at 2018-04-11 09:27:05 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"Microsoft"}
+  [1m[36mSearch Load (1.7ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%Microsoft%')[0m
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/search/undefined" for 127.0.0.1 at 2018-04-11 09:27:59 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"undefined"}
+  [1m[36mSearch Load (2.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%undefined%')[0m
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/api/search/undefined" for 127.0.0.1 at 2018-04-11 09:28:03 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"undefined"}
+  [1m[36mSearch Load (2.0ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%undefined%')[0m
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/search/undefined" for 127.0.0.1 at 2018-04-11 09:28:08 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"undefined"}
+  [1m[36mSearch Load (1.8ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%undefined%')[0m
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/search/Amazon" for 127.0.0.1 at 2018-04-11 09:28:44 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"Amazon"}
+  [1m[36mSearch Load (1.9ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%Amazon%')[0m
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 1.9ms)
+
+

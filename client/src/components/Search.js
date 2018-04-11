@@ -7,13 +7,28 @@ class Search extends Component {
     super();
     this.state = {
       apiDataLoaded: false,
-      apiData: null
+      apiData: null,
+      ticker: null
     }
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   componentDidMount() {
-    console.log("mounted")
-    Services.search("Apple")
+
+  }
+
+  handleInputChange(e) {
+    let name = e.target.name;
+    let value = e.target.value;
+    this.setState({
+      ticker: value
+    })
+  }
+
+  handleFormSubmit(e) {
+    e.preventDefault();
+    Services.search(this.state.ticker)
       .then(data => {
         this.setState({
           apiDataLoaded: true,
@@ -24,8 +39,9 @@ class Search extends Component {
       })
       .catch(err => {
         console.log('error': err);
-      });
+      })
   }
+
 
   renderSearch() {
     return this.state.apiData.map(stock => <SearchResult {...stock} key={stock.id}/>)
@@ -34,12 +50,11 @@ class Search extends Component {
   render() {
     return (
       <div>
-      {
-        this.state.apiDataLoaded
-        ? this.renderSearch()
-
-        : <h1>Loading...</h1>
-      }
+        <form onSubmit={this.handleFormSubmit}>
+          <input type='text' name='query' onChange={this.handleInputChange} placeholder='Enter Company Name' />
+          <input type='submit' value="Search"/>
+        </form>
+        { this.state.apiDataLoaded ? this.renderSearch() : '' }
       </div>
     )
   }

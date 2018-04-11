@@ -44,20 +44,17 @@ class ViewStock extends Component {
       chartData: tempChart,
       apiDataLoaded: true
     })
-    console.log("Dates", tempDates)
-    console.log("Data", tempData)
   }
 
   componentDidMount() {
-    console.log("Mounted")
-    Services.getChart("AAPL")
+    Services.getChart(this.props.match.params.ticker)
       .then(data => {
+        let title = data.data.dataset.name.substring(0, data.data.dataset.name.length - 35)
         this.setState({
           apiData: data.data.dataset.data,
-          ticker: data.data.dataset.dataset_code
+          ticker: title
         })
         this.storeData(this.state.apiData)
-        console.log(data.data.dataset)
       })
       .catch(err => {
         console.log('error': err);
@@ -72,7 +69,7 @@ class ViewStock extends Component {
           options={{
             title:{
               display:true,
-              text: this.state.ticker + ", Closing Stock Price"
+              text: this.state.ticker + " Closing Stock Price"
             }
           }}
         />
