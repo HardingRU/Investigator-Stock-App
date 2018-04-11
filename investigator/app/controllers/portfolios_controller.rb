@@ -1,5 +1,5 @@
 class PortfoliosController < ApplicationController
-
+  before_action :authenticate_user
   def index
     @portfolios = Portfolio.all
     render json: {
