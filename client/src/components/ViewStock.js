@@ -2,6 +2,8 @@
 import React, { Component }from 'react';
 import Services from '../services';
 import {Line} from 'react-chartjs-2';
+import { Redirect } from 'react-router'
+
 
 class ViewStock extends Component {
   constructor() {
@@ -20,6 +22,7 @@ class ViewStock extends Component {
   }
 
   storeData(input) {
+    console.log("input", input)
     let tempDates = []
     let tempData = []
     for (let i = 0; i < input.length; i++) {
@@ -55,7 +58,6 @@ class ViewStock extends Component {
   UNSAFE_componentWillMount() {
     Services.cAuth()
       .then(data => {
-        console.log(data)
       })
       .catch(err => {
         console.log(err)
@@ -70,15 +72,15 @@ class ViewStock extends Component {
   componentDidMount() {
     Services.getChart(this.props.match.params.ticker)
       .then(data => {
-        let title = data.data.dataset.name.substring(0, data.data.dataset.name.length - 35)
+        let title = data.data.data.dataset.name.substring(0, data.data.data.dataset.name.length - 35)
         this.setState({
-          apiData: data.data.dataset.data,
+          apiData: data.data.data.dataset.data,
           ticker: title
         })
         this.storeData(this.state.apiData)
       })
       .catch(err => {
-        console.log('error': err);
+        console.log(err);
       })
   }
 
@@ -114,16 +116,14 @@ class ViewStock extends Component {
         <div>
           <div><button name={this.props.match.params.ticker} onClick={this.handleRemove}>Add to Portfolio</button></div>
           <div> {this.state.apiDataLoaded ? this.renderChart() : <h1>Loading...</h1>} </div>
-          <div> {this.state.apiDataLoaded ? this.renderData() : <h1></h1>} </div>
+          <div> {this.state.apiDataLoaded ? this.renderData() : <h1> </h1>} </div>
         </div>
       )
     }
 
     else {
       return (
-        <div>
-          <h1>Denied</h1>
-        </div>
+        <Redirect to="/"/>
       )
     }
 

@@ -1,10 +1,27 @@
 class PortfoliosController < ApplicationController
-  before_action :authenticate_user
+  include HTTParty
+  before_action :authenticate_user, except: [:chart, :refresh]
   def index
     @portfolios = Portfolio.all
     render json: {
       message: "all portfolios",
       data: @portfolios
+    }
+  end
+
+  def refresh
+    @helpMe = HTTParty.get("https://www.quandl.com/api/v3/datasets/EOD/#{params[:id]}.json?limit=1&api_key=xPogPiUBWzoPHWujv1J")
+    render json: {
+      message: "data refreshed",
+      data: @helpMe
+    }
+  end
+
+  def chart
+    @response = HTTParty.get("https://www.quandl.com/api/v3/datasets/EOD/#{params[:id]}.json?api_key=xPogPiUBWzoPHWujv1J")
+    render json: {
+      message: "stock chart data",
+      data: @response
     }
   end
 

@@ -2,6 +2,8 @@
 import React, { Component }from 'react';
 import Services from '../services';
 import Stock from './PortfolioSingle'
+import { Redirect } from 'react-router'
+
 
 class Portfolio extends Component {
   constructor() {
@@ -16,7 +18,6 @@ class Portfolio extends Component {
   UNSAFE_componentWillMount() {
     Services.cAuth()
       .then(data => {
-        console.log(data)
       })
       .catch(err => {
         console.log(err)
@@ -35,27 +36,26 @@ class Portfolio extends Component {
                 apiDataLoaded: true,
                 apiData: data.data.data,
               });
-              console.log(this.state.apiData)
-
+              console.log("after state", this.state)
               for (let i=0; i<this.state.apiData.length; i++) {
                 Services.getLatestData(this.state.apiData[i].ticker)
                 .then(data2 => {
-                        Services.updateData(data2.data.dataset)
+                  console.log(data2)
+                        Services.updateData(data2.data.data.dataset)
                         .then(data3 => {
                           console.log(data3)
                         })
                         .catch(err => {
-                          console.log('error': err)
+                          console.log("inside updateData", err)
                         })
-                  console.log(data2.data.dataset)
                 })
                 .catch(err => {
-                  console.log('error': err)
+                  console.log("inside getLatest", err)
                 })
               }
             })
             .catch(err => {
-              console.log('error': err);
+              console.log("inside getPort", err);
             })
   }
 
@@ -73,9 +73,7 @@ class Portfolio extends Component {
     }
     else {
       return (
-        <div>
-        <h1>Denied</h1>
-        </div>
+        <Redirect to="/"/>
       )
     }
   }

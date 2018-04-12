@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Services from './services'
-import { Route, Redirect } from 'react-router'
+import { Redirect } from 'react-router'
 
 
 
@@ -11,15 +11,16 @@ class App extends Component {
     super();
     this.state = {
       apiDataLoaded: false,
+      email: null,
+      password: null
     }
     this.login = this.login.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+
   }
 
   login () {
-    const email = "5"
-    const password = "5"
-    const request = {"auth": {"email": email, "password": password}}
-    console.log(request)
+    const request = {"auth": {"email": this.state.email, "password": this.state.password}}
     Services.login(request)
       .then(result => {
         localStorage.setItem("jwt", result.data.jwt)
@@ -33,6 +34,20 @@ class App extends Component {
       })
   }
 
+  handleInputChange(e) {
+    let value = e.target.value;
+    if (e.target.name === "email") {
+      this.setState({
+        email: value
+      })
+    }
+    else {
+      this.setState({
+        password: value
+      })
+    }
+  }
+
   render() {
     if(this.state.apiDataLoaded === false) {
       return (
@@ -44,7 +59,7 @@ class App extends Component {
             <label htmlFor="email">Email: </label>
             <br />
             <input name="email" id="email"
-              type="email"
+              type="email" onChange={this.handleInputChange}
             />
             <br /><br />
             <label htmlFor="password">Password:</label>
@@ -52,7 +67,7 @@ class App extends Component {
             <input
               name="password"
               id="password"
-              type="password"
+              type="password" onChange={this.handleInputChange}
             />
             </form>
             <br />

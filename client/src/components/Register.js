@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Services from '../services'
-import { Link } from 'react-router-dom'
-import { Route, Redirect } from 'react-router'
+import { Redirect } from 'react-router'
 
 
   class Register extends Component {
@@ -9,14 +8,29 @@ import { Route, Redirect } from 'react-router'
       super();
       this.state = {
         apiDataLoaded: false,
+        email: null,
+        password: null
       }
       this.register = this.register.bind(this);
+      this.handleInputChange = this.handleInputChange.bind(this);
+    }
+
+    handleInputChange(e) {
+      let value = e.target.value;
+      if (e.target.name === "email") {
+        this.setState({
+          email: value
+        })
+      }
+      else {
+        this.setState({
+          password: value
+        })
+      }
     }
 
   register () {
-    const email = "12"
-    const password = "12"
-    const info = {"email": email, "password": password}
+    const info = {"email": this.state.email, "password": this.state.password}
     //console.log(request)
     Services.register(info)
       .then(result => {
@@ -40,7 +54,7 @@ import { Route, Redirect } from 'react-router'
             <label htmlFor="email">Email: </label>
             <br />
             <input name="email" id="email"
-              type="email"
+              type="email" onChange={this.handleInputChange}
             />
             <br /><br />
             <label htmlFor="password">Password:</label>
@@ -48,7 +62,7 @@ import { Route, Redirect } from 'react-router'
             <input
               name="password"
               id="password"
-              type="password"
+              type="password" onChange={this.handleInputChange}
             />
             </form>
             <br />
@@ -64,7 +78,7 @@ import { Route, Redirect } from 'react-router'
     }
     else {
       return (
-        <Redirect to="/login"/>
+        <Redirect to="/"/>
       )
     }
   }

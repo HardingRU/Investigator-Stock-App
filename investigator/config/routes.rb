@@ -2,10 +2,13 @@ Rails.application.routes.draw do
   post '/api/user_token', to: 'user_token#create'
   post "api/user", to: "users#create"
   get "api/portfolio", to: "portfolios#index"
+  get "api/refresh/:id", to: "portfolios#refresh"
   get "api/portfolio/:id", to: "portfolios#show"
   post "api/portfolio", to: "portfolios#create"
+  get "api/data/:id", to: "portfolios#chart"
   delete "api/portfolio/:id", to: "portfolios#destroy"
-  put "api/portfolio/:id", to: "portfolios#update"
+  put "api/portfolio/:id", to: "portfolios#refresh"
+  put "api/update/:id", to: "portfolios#update"
   get "api/search/:query", to: "searches#search"
   #post "api/user_token", to: 'user_token#create'
 

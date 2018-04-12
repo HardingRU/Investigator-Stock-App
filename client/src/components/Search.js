@@ -1,7 +1,7 @@
 import React, { Component }from 'react';
 import Services from '../services';
 import SearchResult from './SearchResult'
-import { Route, Redirect } from 'react-router'
+import { Redirect } from 'react-router'
 
 class Search extends Component {
   constructor() {
@@ -19,7 +19,6 @@ class Search extends Component {
   UNSAFE_componentWillMount() {
     Services.cAuth()
       .then(data => {
-        console.log(data)
       })
       .catch(err => {
         console.log(err)
@@ -33,7 +32,6 @@ class Search extends Component {
 
 
   componentDidMount() {
-    console.log(localStorage)
   }
 
   handleInputChange(e) {
@@ -51,8 +49,6 @@ class Search extends Component {
           apiDataLoaded: true,
           apiData: data.data.data
         });
-        console.log(data)
-
       })
       .catch(err => {
         console.log('error': err);
