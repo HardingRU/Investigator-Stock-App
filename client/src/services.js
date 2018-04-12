@@ -3,7 +3,34 @@ import axios from 'axios';
 
 class Services {
   getPortfolio() {
-    return axios.get('/api/portfolio')
+    console.log(localStorage)
+    //return axios.get('/api/portfolio')
+    return axios({
+      method: 'get',
+      url: '/api/portfolio',
+      headers: {
+       'Authorization': localStorage.jwt,
+     }
+    })
+  }
+
+  register(info) {
+    console.log(info)
+    return axios({
+      method: 'post',
+      url: "/api/user",
+      data: info
+    })
+  }
+
+  cAuth() {
+    return axios({
+      method: 'get',
+      url: '/api/search/AAPL',
+      headers: {
+       'Authorization': localStorage.jwt,
+     }
+    })
   }
 
   getLatestData(input) {
@@ -23,11 +50,27 @@ class Services {
   }
 
   search(ticker) {
-    return axios.get(`/api/search/${ticker}`)
+    //return axios.get(`/api/search/${ticker}`)
+    return axios({
+      method: 'get',
+      url: `/api/search/${ticker}`,
+      headers: {
+       'Authorization': localStorage.jwt,
+     }
+    })
   }
 
   getChart(ticker) {
     return axios.get(`https://www.quandl.com/api/v3/datasets/EOD/${ticker}.json?api_key=-zxmVteaSiZjzxyvdkU`)
+  }
+
+  login(user_info) {
+    console.log(user_info)
+    return axios({
+      method: 'post',
+      url: "/api/user_token",
+      data: user_info
+    })
   }
 
 //  getSinglePortfolio() {

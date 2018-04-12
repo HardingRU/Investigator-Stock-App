@@ -10,7 +10,8 @@ class ViewStock extends Component {
       apiDataLoaded: false,
       apiData: null,
       chartData: {},
-      ticker: null
+      ticker: null,
+      unauth: false
     }
     this.storeData = this.storeData.bind(this);
     this.renderChart = this.renderChart.bind(this);
@@ -49,6 +50,21 @@ class ViewStock extends Component {
 
   handleRemove(e) {
     console.log("inside remove")
+  }
+
+  UNSAFE_componentWillMount() {
+    Services.cAuth()
+      .then(data => {
+        console.log(data)
+      })
+      .catch(err => {
+        console.log(err)
+        if (err.response.status === 401) {
+          this.setState({
+            unauth: true
+          })
+        }
+      })
   }
 
   componentDidMount() {
@@ -93,13 +109,24 @@ class ViewStock extends Component {
 
 
   render() {
-    return (
-      <div>
-        <div><button name={this.props.match.params.ticker} onClick={this.handleRemove}>Add to Portfolio</button></div>
-        <div> {this.state.apiDataLoaded ? this.renderChart() : <h1>Loading...</h1>} </div>
-        <div> {this.state.apiDataLoaded ? this.renderData() : <h1></h1>} </div>
-      </div>
-    )
+    if(this.state.unauth === false) {
+      return (
+        <div>
+          <div><button name={this.props.match.params.ticker} onClick={this.handleRemove}>Add to Portfolio</button></div>
+          <div> {this.state.apiDataLoaded ? this.renderChart() : <h1>Loading...</h1>} </div>
+          <div> {this.state.apiDataLoaded ? this.renderData() : <h1></h1>} </div>
+        </div>
+      )
+    }
+
+    else {
+      return (
+        <div>
+          <h1>Denied</h1>
+        </div>
+      )
+    }
+
   }
 }
 

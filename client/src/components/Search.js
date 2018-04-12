@@ -1,6 +1,7 @@
 import React, { Component }from 'react';
 import Services from '../services';
 import SearchResult from './SearchResult'
+import { Route, Redirect } from 'react-router'
 
 class Search extends Component {
   constructor() {
@@ -8,18 +9,34 @@ class Search extends Component {
     this.state = {
       apiDataLoaded: false,
       apiData: null,
-      ticker: null
+      ticker: null,
+      unauth: false
     }
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
-  componentDidMount() {
+  UNSAFE_componentWillMount() {
+    Services.cAuth()
+      .then(data => {
+        console.log(data)
+      })
+      .catch(err => {
+        console.log(err)
+        if (err.response.status === 401) {
+          this.setState({
+            unauth: true
+          })
+        }
+      })
+  }
 
+
+  componentDidMount() {
+    console.log(localStorage)
   }
 
   handleInputChange(e) {
-    let name = e.target.name;
     let value = e.target.value;
     this.setState({
       ticker: value
@@ -50,10 +67,12 @@ class Search extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleFormSubmit}>
+        { this.state.unauth === false ?
+        (<form onSubmit={this.handleFormSubmit}>
           <input type='text' name='query' onChange={this.handleInputChange} placeholder='Enter Company Name' />
           <input type='submit' value="Search"/>
-        </form>
+        </form>) : <Redirect to="/"/>
+      }
         { this.state.apiDataLoaded ? this.renderSearch() : '' }
       </div>
     )
