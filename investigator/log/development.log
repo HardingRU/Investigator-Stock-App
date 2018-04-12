@@ -27552,3 +27552,494 @@ Filter chain halted as :authenticate_user rendered or redirected
 Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
 
 
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-11 18:49:56 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for 127.0.0.1 at 2018-04-11 20:47:20 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"1", "password"=>"[FILTERED]", "confirm"=>"1", "user"=>{"email"=>"1"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 68ms (Views: 0.9ms | ActiveRecord: 45.9ms)
+
+
+Started POST "/api/user" for 127.0.0.1 at 2018-04-11 20:48:27 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"1", "password"=>"[FILTERED]", "user"=>{"email"=>"1"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 4ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/user" for 127.0.0.1 at 2018-04-11 20:54:09 -0400
+  
+SyntaxError (/Users/mac/code/wdi/projects/Investigator-Stock-App/investigator/app/controllers/users_controller.rb:54: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/users_controller.rb:54: syntax error, unexpected keyword_end, expecting end-of-input
+Started POST "/api/user" for 127.0.0.1 at 2018-04-11 20:54:49 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"1", "password"=>"[FILTERED]", "user"=>{"email"=>"1"}}
+Completed 204 No Content in 1ms (ActiveRecord: 2.2ms)
+
+
+Started POST "/api/user" for 127.0.0.1 at 2018-04-11 20:57:43 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"1", "password"=>"[FILTERED]", "user"=>{"email"=>"1"}}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `email' for #<ActionController::Parameters:0x00007f9007271688>):
+  
+app/controllers/users_controller.rb:20:in `create'
+Started POST "/api/user" for 127.0.0.1 at 2018-04-11 21:00:00 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"1", "password"=>"[FILTERED]", "user"=>{"email"=>"1"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `email' for #<ActionController::Parameters:0x00007f90074e3f10>):
+  
+app/controllers/users_controller.rb:20:in `create'
+Started POST "/api/user" for 127.0.0.1 at 2018-04-11 21:00:28 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"1", "password"=>"[FILTERED]", "user"=>{"email"=>"1"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `email' for #<ActionController::Parameters:0x00007f900872f930>):
+  
+app/controllers/users_controller.rb:19:in `create'
+Started POST "/api/user" for 127.0.0.1 at 2018-04-11 21:03:43 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"1", "password"=>"[FILTERED]", "user"=>{"email"=>"1"}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for 127.0.0.1 at 2018-04-11 21:05:38 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"1", "password"=>"[FILTERED]", "user"=>{"email"=>"1"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "1"], ["password_digest", "$2a$10$0EJdpcuFfNTbXLLAdYtj3.C1Dkh/QfP61pcBN1zzNieOARwkfXTpe"], ["created_at", "2018-04-12 01:05:39.086375"], ["updated_at", "2018-04-12 01:05:39.086375"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 90ms (ActiveRecord: 6.2ms)
+
+
+Started POST "/api/user" for 127.0.0.1 at 2018-04-11 21:10:00 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"2", "password"=>"[FILTERED]", "user"=>{"email"=>"2"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "2"], ["password_digest", "$2a$10$DIJEQpcWSt1.7h2L46nq5ORWpPxaMLwhkdfQuyvw0svcYwhy3j38O"], ["created_at", "2018-04-12 01:10:01.034792"], ["updated_at", "2018-04-12 01:10:01.034792"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/portfolio
+Completed 302 Found in 85ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/portfolio" for 127.0.0.1 at 2018-04-11 21:10:01 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/portfolio"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-11 21:10:15 -0400
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-11 21:10:15 -0400
+Processing by PortfoliosController#index as HTML
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Filter chain halted as :authenticate_user rendered or redirected
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms)
+
+
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for 127.0.0.1 at 2018-04-11 21:24:58 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"5", "password"=>"[FILTERED]", "user"=>{"email"=>"5"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "5"], ["password_digest", "$2a$10$yle3rvUy.GmwW0cOLOBTvOfERF9Ll7ousIZBJWmmiXyXMNkVfLGNG"], ["created_at", "2018-04-12 01:24:58.400206"], ["updated_at", "2018-04-12 01:24:58.400206"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/search
+Completed 302 Found in 112ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2018-04-11 21:24:58 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/search"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/api/user" for 127.0.0.1 at 2018-04-11 21:25:15 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"6", "password"=>"[FILTERED]", "user"=>{"email"=>"6"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (6.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "6"], ["password_digest", "$2a$10$y9oC/0Xh7015TuulCgsw2.dNfPmGUR8pcBGTa4kykoCZFUwyU80Ju"], ["created_at", "2018-04-12 01:25:15.133875"], ["updated_at", "2018-04-12 01:25:15.133875"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/search
+Completed 302 Found in 87ms (ActiveRecord: 8.3ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2018-04-11 21:25:15 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/search"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/api/user" for 127.0.0.1 at 2018-04-11 21:26:19 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"7", "password"=>"[FILTERED]", "user"=>{"email"=>"7"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "7"], ["password_digest", "$2a$10$wNweSwkok7FFN0TrD2QHAudbY6fyTcq8tyHm.QKTFCwk9lvbjgX5W"], ["created_at", "2018-04-12 01:26:19.645670"], ["updated_at", "2018-04-12 01:26:19.645670"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/search
+Completed 302 Found in 79ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2018-04-11 21:26:19 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/search"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-11 21:27:47 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-11 21:33:34 -0400
+Processing by SearchesController#show as HTML
+  Parameters: {"query"=>"AAPL"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-11 21:33:51 -0400
+Processing by SearchesController#show as HTML
+  Parameters: {"query"=>"AAPL"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for 127.0.0.1 at 2018-04-11 21:34:03 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"8", "password"=>"[FILTERED]", "user"=>{"email"=>"8"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "8"], ["password_digest", "$2a$10$iP/LEbOyE3/teMWW/IMStOBITlATtgl3fM7ZNqAESAMxhnnjVRLVS"], ["created_at", "2018-04-12 01:34:03.683606"], ["updated_at", "2018-04-12 01:34:03.683606"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/search
+Completed 302 Found in 79ms (ActiveRecord: 7.8ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2018-04-11 21:34:03 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/search"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-11 21:37:33 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-11 21:38:56 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for 127.0.0.1 at 2018-04-11 21:40:38 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"9", "password"=>"[FILTERED]", "user"=>{"email"=>"9"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "9"], ["password_digest", "$2a$10$YieKO7Ra19DYNXGKcpvtiOP35iZvBZ6/conJCDQiN1cIslp7np6bW"], ["created_at", "2018-04-12 01:40:39.059172"], ["updated_at", "2018-04-12 01:40:39.059172"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 90ms (ActiveRecord: 1.9ms)
+
+
+Started POST "/api/user" for 127.0.0.1 at 2018-04-11 21:41:15 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"10", "password"=>"[FILTERED]", "user"=>{"email"=>"10"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "10"], ["password_digest", "$2a$10$JOJVkY6QcK0wx4y2s1Q9Ru4aGXZ4YeL13D8h60hv0pEoo.mbixSgO"], ["created_at", "2018-04-12 01:41:16.043280"], ["updated_at", "2018-04-12 01:41:16.043280"]]
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 88ms (ActiveRecord: 4.2ms)
+
+
+Started POST "/api/user" for 127.0.0.1 at 2018-04-11 21:42:36 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"11", "password"=>"[FILTERED]", "user"=>{"email"=>"11"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "11"], ["password_digest", "$2a$10$QznzucYWJeMhZF1R5EB8hexvDzqBy8sfLKOF5qkyTN0nX/uyHiJJ6"], ["created_at", "2018-04-12 01:42:36.244265"], ["updated_at", "2018-04-12 01:42:36.244265"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 85ms (ActiveRecord: 1.8ms)
+
+
+Started POST "/api/user" for 127.0.0.1 at 2018-04-11 21:43:10 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"12", "password"=>"[FILTERED]", "user"=>{"email"=>"12"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "12"], ["password_digest", "$2a$10$XwNL01D7ZVYRGzwPyIJ4BeLZqpiodSZlR5AWavcBdBsaxfL5Rsd1C"], ["created_at", "2018-04-12 01:43:10.245259"], ["updated_at", "2018-04-12 01:43:10.245259"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 85ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-11 21:43:10 -0400
+Processing by SearchesController#search as HTML
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-11 21:43:10 -0400
+  Parameters: {"query"=>"AAPL"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Processing by PortfoliosController#index as HTML
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-11 21:43:26 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-11 21:43:26 -0400
+Processing by PortfoliosController#index as HTML
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-11 21:44:16 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-11 21:44:16 -0400
+Processing by PortfoliosController#index as HTML
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-11 21:44:22 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-11 21:44:22 -0400
+Processing by PortfoliosController#index as HTML
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-11 21:44:25 -0400
+Processing by PortfoliosController#index as HTML
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-11 21:44:25 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-11 21:44:37 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-11 21:44:37 -0400
+Processing by PortfoliosController#index as HTML
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-11 21:44:39 -0400
+Processing by PortfoliosController#index as HTML
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-11 21:44:39 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-11 21:45:15 -0400
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-11 21:45:15 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Processing by PortfoliosController#index as HTML
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-11 21:46:06 -0400
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-11 21:46:06 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Processing by PortfoliosController#index as HTML
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user_token" for 127.0.0.1 at 2018-04-11 21:46:22 -0400
+Processing by UserTokenController#create as HTML
+  Parameters: {"auth"=>{"email"=>"chss", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"email"=>"chss", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chss"], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started POST "/api/user_token" for 127.0.0.1 at 2018-04-11 21:46:47 -0400
+Processing by UserTokenController#create as HTML
+  Parameters: {"auth"=>{"email"=>"5", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"email"=>"5", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "5"], ["LIMIT", 1]]
+Completed 201 Created in 78ms (Views: 0.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/api/user_token" for 127.0.0.1 at 2018-04-11 21:47:26 -0400
+Processing by UserTokenController#create as HTML
+  Parameters: {"auth"=>{"email"=>"5", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"email"=>"5", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "5"], ["LIMIT", 1]]
+Completed 201 Created in 75ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-11 21:47:26 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-11 21:47:26 -0400
+Processing by PortfoliosController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 30ms (Views: 10.3ms | ActiveRecord: 6.3ms)
+
+
+  [1m[36mSearch Load (16.2ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 42ms (Views: 2.6ms | ActiveRecord: 24.1ms)
+
+

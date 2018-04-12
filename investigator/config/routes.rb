@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   post '/api/user_token', to: 'user_token#create'
-  #resources :users
+  post "api/user", to: "users#create"
   get "api/portfolio", to: "portfolios#index"
   get "api/portfolio/:id", to: "portfolios#show"
   post "api/portfolio", to: "portfolios#create"
