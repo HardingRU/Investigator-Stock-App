@@ -10,10 +10,10 @@ class PortfoliosController < ApplicationController
   end
 
   def refresh
-    @helpMe = HTTParty.get("https://www.quandl.com/api/v3/datasets/EOD/#{params[:id]}.json?limit=1&api_key=xPogPiUBWzoPHWujv1J")
+    @response = HTTParty.get("https://www.quandl.com/api/v3/datasets/EOD/#{params[:id]}.json?limit=1&api_key=xPogPiUBWzoPHWujv1J")
     render json: {
       message: "data refreshed",
-      data: @helpMe
+      data: @response
     }
   end
 

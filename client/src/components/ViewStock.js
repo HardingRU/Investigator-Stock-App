@@ -13,16 +13,32 @@ class ViewStock extends Component {
       apiData: null,
       chartData: {},
       ticker: null,
-      unauth: false
+      unauth: false,
+      exportDataReady: false,
+      exportData: null
     }
     this.storeData = this.storeData.bind(this);
     this.renderChart = this.renderChart.bind(this);
     this.renderData = this.renderData.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
+    this.exportData = this.exportData.bind(this);
+    this.rerender = this.rerender.bind(this);
+    this.oneWeek = this.oneWeek.bind(this);
+    this.oneMonth = this.oneMonth.bind(this);
+    this.threeMonths = this.threeMonths.bind(this);
+    this.sixMonths = this.sixMonths.bind(this);
+    this.oneYear = this.oneYear.bind(this);
+    this.fiveYears = this.fiveYears.bind(this)
+    this.max = this.max.bind(this)
+
+
+
+
+
+
   }
 
   storeData(input) {
-    console.log("input", input)
     let tempDates = []
     let tempData = []
     for (let i = 0; i < input.length; i++) {
@@ -100,34 +116,160 @@ class ViewStock extends Component {
     )
   }
 
+  exportData() {
+    let tempData = []
+    for(let i = 0; i < this.state.apiData.length; i++) {
+      tempData.push(this.state.apiData[i][0])
+      tempData.push(this.state.apiData[i][1])
+      tempData.push(this.state.apiData[i][2])
+      tempData.push(this.state.apiData[i][3])
+      tempData.push(this.state.apiData[i][4])
+      tempData.push(this.state.apiData[i][5])
+      tempData.push(this.state.apiData[i][6])
+      tempData.push(this.state.apiData[i][7])
+      tempData.push(this.state.apiData[i][8])
+      tempData.push(this.state.apiData[i][9])
+      tempData.push(this.state.apiData[i][10])
+      tempData.push(this.state.apiData[i][11])
+      tempData.push(this.state.apiData[i][12])
+    }
+    const multiDataSet = [
+      {
+          columns: ["Date", "Open", "High", "Low", "Close", "Volume", "Dividend", "Split", "Adjusted Open", "Adjusted High", "Adjusted Low", "Adjusted Close", "Adjusted Volume"],
+          data: tempData
+        }
+    ]
+    this.setState({
+      exportDataReady: true,
+      exportData: multiDataSet
+    })
+  }
+
   renderData() {
     var rowList = []
-    rowList.push(<h2>Date Open High Low Close</h2>)
+    rowList.push(<tbody className="tableData"><tr><th>Date</th><th>Open</th><th>High</th><th>Low</th><th>Close</th></tr></tbody>)
+    console.log("rowList", rowList)
     for (let i = 0; i < this.state.apiData.length; i++) {
-      rowList.push(<div key={i}>{this.state.apiData[i][0]} {this.state.apiData[i][8]} {this.state.apiData[i][9]} {this.state.apiData[i][10]} {this.state.apiData[i][11]} </div>);
+      rowList.push(<tr key={i}>{this.state.apiData[i][0]} <td>{this.state.apiData[i][8]}</td> <td>{this.state.apiData[i][9]}</td> <td>{this.state.apiData[i][10]}</td> <td>{this.state.apiData[i][11]}</td> </tr>);
     }
     return rowList;
   }
 
+  rerender(num) {
+
+    let tempDates = []
+    let tempData = []
+    if(num > this.state.apiData.length) {
+      this.max()
+    }
+    else {
+      for (let i = 0; i < num; i++) {
+        tempDates.push(this.state.apiData[i][0])
+        tempData.push(this.state.apiData[i][11])
+      }
+      tempData = tempData.reverse()
+      tempDates = tempDates.reverse()
+      let tempChart = {
+        labels: tempDates,
+        datasets: [
+          {
+            fillColor: "#25BDFF",
+            strokeColor: "#25BDFF",
+            pointColor: "#25BDFF",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "#25BDFF",
+            data: tempData
+          }
+        ]
+      }
+      this.setState({
+        chartData: tempChart,
+      })
+    }
+  }
+
+  oneWeek() {
+    this.rerender(5)
+  }
+
+  oneMonth() {
+    this.rerender(20)
+  }
+
+  threeMonths() {
+    this.rerender(60)
+  }
+
+  sixMonths() {
+    this.rerender(120)
+  }
+
+  oneYear() {
+    this.rerender(240)
+  }
+
+  fiveYears() {
+    this.rerender(1200)
+  }
+
+  max() {
+    let tempDates = []
+    let tempData = []
+    for (let i = 0; i < this.state.apiData.length; i++) {
+      tempDates.push(this.state.apiData[i][0])
+      tempData.push(this.state.apiData[i][11])
+    }
+    tempDates = tempDates.reverse()
+    tempData = tempData.reverse()
+    let tempChart = {
+      labels: tempDates,
+      datasets: [
+        {
+          fillColor: "#25BDFF",
+          strokeColor: "#25BDFF",
+          pointColor: "#25BDFF",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "#25BDFF",
+          data: tempData
+        }
+      ]
+    }
+    console.log("temp", tempDates)
+    this.setState({
+      chartData: tempChart,
+    })
+  }
+
 
   render() {
-    if(this.state.unauth === false) {
-      return (
-        <div>
-          <div><button name={this.props.match.params.ticker} onClick={this.handleRemove}>Add to Portfolio</button></div>
-          <div> {this.state.apiDataLoaded ? this.renderChart() : <h1>Loading...</h1>} </div>
-          <div> {this.state.apiDataLoaded ? this.renderData() : <h1> </h1>} </div>
-        </div>
-      )
+      if(this.state.unauth === false) {
+        return (
+          <div>
+            <div><button name={this.props.match.params.ticker} onClick={this.handleRemove}>Add to Portfolio</button></div>
+            <div><button onClick={this.oneWeek}>1W</button>
+                 <button onClick={this.oneMonth}>1M</button>
+                 <button onClick={this.threeMonths}>3M</button>
+                 <button onClick={this.sixMonths}>6M</button>
+                 <button onClick={this.oneYear}>1Y</button>
+                 <button onClick={this.fiveYears}>5Y</button>
+                 <button onClick={this.max}>Max</button></div>
+            <div> {this.state.apiDataLoaded ? this.renderChart() : <h1>Loading...</h1>} </div>
+            <div> {this.state.apiDataLoaded ? this.renderData() : <h1> </h1>} </div>
+          </div>
+        )
+      }
+
+      else {
+        return (
+          <Redirect to="/"/>
+        )
+      }
     }
 
-    else {
-      return (
-        <Redirect to="/"/>
-      )
-    }
 
-  }
+
 }
 
 export default ViewStock

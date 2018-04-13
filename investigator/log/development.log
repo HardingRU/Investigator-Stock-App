@@ -31225,3 +31225,1810 @@ Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 2.3ms)
 Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 1.6ms)
 
 
+Started POST "/api/user_token" for 127.0.0.1 at 2018-04-12 08:58:48 -0400
+Processing by UserTokenController#create as HTML
+  Parameters: {"auth"=>{"email"=>"aushdoashdioashdao", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"email"=>"aushdoashdioashdao", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "aushdoashdioashdao"], ["LIMIT", 1]]
+Completed 404 Not Found in 20ms (ActiveRecord: 3.9ms)
+
+
+Started POST "/api/user_token" for 127.0.0.1 at 2018-04-12 08:58:59 -0400
+Processing by UserTokenController#create as HTML
+  Parameters: {"auth"=>{"email"=>"5", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"email"=>"5", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "5"], ["LIMIT", 1]]
+Completed 201 Created in 112ms (Views: 0.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 08:58:59 -0400
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-12 08:58:59 -0400
+Processing by PortfoliosController#index as HTML
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (3.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 20ms (Views: 2.0ms | ActiveRecord: 9.2ms)
+
+
+  [1m[36mPortfolio Load (1.8ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 64ms (Views: 22.4ms | ActiveRecord: 24.2ms)
+
+
+Started GET "/api/refresh/TSLA" for 127.0.0.1 at 2018-04-12 08:58:59 -0400
+Started GET "/api/refresh/MSFT" for 127.0.0.1 at 2018-04-12 08:58:59 -0400
+Started GET "/api/refresh/AAPL" for 127.0.0.1 at 2018-04-12 08:58:59 -0400
+Processing by PortfoliosController#refresh as HTML
+  Parameters: {"id"=>"TSLA"}
+Processing by PortfoliosController#refresh as HTML
+Processing by PortfoliosController#refresh as HTML
+  Parameters: {"id"=>"MSFT"}
+  Parameters: {"id"=>"AAPL"}
+Completed 200 OK in 95ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 133ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 124ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for 127.0.0.1 at 2018-04-12 08:59:39 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"dieselk", "password"=>"[FILTERED]", "user"=>{"email"=>"dieselk"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (6.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "dieselk"], ["password_digest", "$2a$10$byafmB/dk3zAeV0MnNSaL.H3dY0ccm2uQuM.fqkzKPjAFJGpVjzfy"], ["created_at", "2018-04-12 12:59:39.207018"], ["updated_at", "2018-04-12 12:59:39.207018"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 98ms (ActiveRecord: 8.5ms)
+
+
+Started POST "/api/user_token" for 127.0.0.1 at 2018-04-12 08:59:46 -0400
+Processing by UserTokenController#create as HTML
+  Parameters: {"auth"=>{"email"=>"dieselk", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"email"=>"dieselk", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "dieselk"], ["LIMIT", 1]]
+Completed 201 Created in 74ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-12 08:59:46 -0400
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 08:59:46 -0400
+Processing by PortfoliosController#index as HTML
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mPortfolio Load (1.8ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 8ms (Views: 2.9ms | ActiveRecord: 2.2ms)
+
+
+  [1m[36mSearch Load (7.6ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 13ms (Views: 1.3ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/api/refresh/AAPL" for 127.0.0.1 at 2018-04-12 08:59:46 -0400
+Started GET "/api/refresh/TSLA" for 127.0.0.1 at 2018-04-12 08:59:46 -0400
+Started GET "/api/refresh/MSFT" for 127.0.0.1 at 2018-04-12 08:59:46 -0400
+Processing by PortfoliosController#refresh as HTML
+Processing by PortfoliosController#refresh as HTML
+Processing by PortfoliosController#refresh as HTML
+  Parameters: {"id"=>"TSLA"}
+  Parameters: {"id"=>"MSFT"}
+  Parameters: {"id"=>"AAPL"}
+Completed 200 OK in 99ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 114ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 109ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user_token" for 127.0.0.1 at 2018-04-12 09:21:27 -0400
+Processing by UserTokenController#create as HTML
+  Parameters: {"auth"=>{"email"=>"asldhasoidhsa", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"email"=>"asldhasoidhsa", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "asldhasoidhsa"], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started POST "/api/user_token" for 127.0.0.1 at 2018-04-12 09:21:34 -0400
+Processing by UserTokenController#create as HTML
+  Parameters: {"auth"=>{"email"=>"5", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"email"=>"5", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "5"], ["LIMIT", 1]]
+Completed 201 Created in 79ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 09:21:34 -0400
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-12 09:21:34 -0400
+Processing by SearchesController#search as HTML
+Processing by PortfoliosController#index as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPortfolio Load (1.7ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 8ms (Views: 3.2ms | ActiveRecord: 2.5ms)
+
+
+  [1m[36mSearch Load (3.6ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 9ms (Views: 1.1ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/api/refresh/MSFT" for 127.0.0.1 at 2018-04-12 09:21:34 -0400
+Processing by PortfoliosController#refresh as HTML
+  Parameters: {"id"=>"MSFT"}
+Started GET "/api/refresh/AAPL" for 127.0.0.1 at 2018-04-12 09:21:34 -0400
+Processing by PortfoliosController#refresh as HTML
+  Parameters: {"id"=>"AAPL"}
+Started GET "/api/refresh/TSLA" for 127.0.0.1 at 2018-04-12 09:21:35 -0400
+Processing by PortfoliosController#refresh as HTML
+  Parameters: {"id"=>"TSLA"}
+Completed 200 OK in 119ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 162ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 142ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 09:22:43 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 09:22:43 -0400
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+  [1m[36mSearch Load (75.6ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 95ms (Views: 1.1ms | ActiveRecord: 78.3ms)
+
+
+Completed 200 OK in 222ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 09:23:37 -0400
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 09:23:37 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (96.0ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 101ms (Views: 1.0ms | ActiveRecord: 96.4ms)
+
+
+Completed 200 OK in 143ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 09:24:22 -0400
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 09:24:22 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (5.7ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 76ms (Views: 2.3ms | ActiveRecord: 20.9ms)
+
+
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+Completed 200 OK in 3036ms (Views: 573.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-12 09:24:49 -0400
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 09:24:49 -0400
+Processing by PortfoliosController#index as HTML
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (32.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPortfolio Load (0.8ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (9.5ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 96ms (Views: 2.2ms | ActiveRecord: 33.7ms)
+
+
+Completed 200 OK in 129ms (Views: 43.8ms | ActiveRecord: 50.5ms)
+
+
+Started GET "/api/refresh/AAPL" for 127.0.0.1 at 2018-04-12 09:24:49 -0400
+Started GET "/api/refresh/MSFT" for 127.0.0.1 at 2018-04-12 09:24:49 -0400
+Processing by PortfoliosController#refresh as HTML
+  Parameters: {"id"=>"AAPL"}
+Started GET "/api/refresh/TSLA" for 127.0.0.1 at 2018-04-12 09:24:49 -0400
+Processing by PortfoliosController#refresh as HTML
+  Parameters: {"id"=>"MSFT"}
+Processing by PortfoliosController#refresh as HTML
+  Parameters: {"id"=>"TSLA"}
+Completed 200 OK in 148ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/api/update/TSLA" for 127.0.0.1 at 2018-04-12 09:24:49 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"TSLA", "current_price"=>300.93, "id"=>"TSLA", "portfolio"=>{"ticker"=>"TSLA", "current_price"=>300.93}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPortfolio Load (1.1ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "TSLA"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 7ms (Views: 0.7ms | ActiveRecord: 1.8ms)
+
+
+Completed 200 OK in 237ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/api/update/AAPL" for 127.0.0.1 at 2018-04-12 09:24:49 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"AAPL", "current_price"=>172.44, "id"=>"AAPL", "portfolio"=>{"ticker"=>"AAPL", "current_price"=>172.44}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "AAPL"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 1.1ms)
+
+
+Completed 200 OK in 248ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/api/update/MSFT" for 127.0.0.1 at 2018-04-12 09:24:49 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"MSFT", "current_price"=>91.86, "id"=>"MSFT", "portfolio"=>{"ticker"=>"MSFT", "current_price"=>91.86}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "MSFT"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 10:06:10 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-12 10:06:10 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (7.8ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 40ms (Views: 1.3ms | ActiveRecord: 8.1ms)
+
+
+Processing by PortfoliosController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPortfolio Load (0.7ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 47ms (Views: 23.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/refresh/MSFT" for 127.0.0.1 at 2018-04-12 10:06:11 -0400
+Processing by PortfoliosController#refresh as HTML
+  Parameters: {"id"=>"MSFT"}
+Started GET "/api/refresh/TSLA" for 127.0.0.1 at 2018-04-12 10:06:11 -0400
+Started GET "/api/refresh/AAPL" for 127.0.0.1 at 2018-04-12 10:06:11 -0400
+Processing by PortfoliosController#refresh as HTML
+  Parameters: {"id"=>"TSLA"}
+Processing by PortfoliosController#refresh as HTML
+  Parameters: {"id"=>"AAPL"}
+Completed 200 OK in 440ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/api/update/TSLA" for 127.0.0.1 at 2018-04-12 10:06:11 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"TSLA", "current_price"=>300.93, "id"=>"TSLA", "portfolio"=>{"ticker"=>"TSLA", "current_price"=>300.93}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "TSLA"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 1.3ms)
+
+
+Completed 200 OK in 482ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/api/update/AAPL" for 127.0.0.1 at 2018-04-12 10:06:11 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"AAPL", "current_price"=>172.44, "id"=>"AAPL", "portfolio"=>{"ticker"=>"AAPL", "current_price"=>172.44}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "AAPL"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 1.0ms)
+
+
+Completed 200 OK in 561ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/api/update/MSFT" for 127.0.0.1 at 2018-04-12 10:06:11 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"MSFT", "current_price"=>91.86, "id"=>"MSFT", "portfolio"=>{"ticker"=>"MSFT", "current_price"=>91.86}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "MSFT"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/api/user_token" for 127.0.0.1 at 2018-04-12 10:06:26 -0400
+Processing by UserTokenController#create as HTML
+  Parameters: {"auth"=>{"email"=>"5", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"email"=>"5", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "5"], ["LIMIT", 1]]
+Completed 201 Created in 79ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 10:06:26 -0400
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-12 10:06:26 -0400
+Processing by PortfoliosController#index as HTML
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 3.0ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/api/refresh/MSFT" for 127.0.0.1 at 2018-04-12 10:06:26 -0400
+Started GET "/api/refresh/AAPL" for 127.0.0.1 at 2018-04-12 10:06:26 -0400
+Started GET "/api/refresh/TSLA" for 127.0.0.1 at 2018-04-12 10:06:26 -0400
+Processing by PortfoliosController#refresh as HTML
+  Parameters: {"id"=>"AAPL"}
+Processing by PortfoliosController#refresh as HTML
+  Parameters: {"id"=>"TSLA"}
+  [1m[36mSearch Load (34.1ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 80ms (Views: 37.7ms | ActiveRecord: 34.5ms)
+
+
+Processing by PortfoliosController#refresh as HTML
+  Parameters: {"id"=>"MSFT"}
+Completed 200 OK in 199ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 187ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/api/update/TSLA" for 127.0.0.1 at 2018-04-12 10:06:26 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"TSLA", "current_price"=>300.93, "id"=>"TSLA", "portfolio"=>{"ticker"=>"TSLA", "current_price"=>300.93}}
+Completed 200 OK in 241ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/api/update/MSFT" for 127.0.0.1 at 2018-04-12 10:06:26 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"MSFT", "current_price"=>91.86, "id"=>"MSFT", "portfolio"=>{"ticker"=>"MSFT", "current_price"=>91.86}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPortfolio Load (1.0ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "TSLA"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPortfolio Load (1.8ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "MSFT"], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Completed 200 OK in 18ms (Views: 0.4ms | ActiveRecord: 3.9ms)
+
+
+Started PUT "/api/update/AAPL" for 127.0.0.1 at 2018-04-12 10:06:26 -0400
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 3.5ms)
+
+
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"AAPL", "current_price"=>172.44, "id"=>"AAPL", "portfolio"=>{"ticker"=>"AAPL", "current_price"=>172.44}}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPortfolio Load (0.8ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "AAPL"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:17:17 -0400
+Started GET "/api/portfolio" for 127.0.0.1 at 2018-04-12 18:17:17 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#index as HTML
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPortfolio Load (0.9ms)[0m  [1m[34mSELECT "portfolios".* FROM "portfolios"[0m
+Completed 200 OK in 36ms (Views: 8.1ms | ActiveRecord: 5.8ms)
+
+
+  [1m[36mSearch Load (19.5ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 54ms (Views: 5.3ms | ActiveRecord: 23.0ms)
+
+
+Started GET "/api/refresh/MSFT" for 127.0.0.1 at 2018-04-12 18:17:17 -0400
+Processing by PortfoliosController#refresh as HTML
+  Parameters: {"id"=>"MSFT"}
+Started GET "/api/refresh/AAPL" for 127.0.0.1 at 2018-04-12 18:17:17 -0400
+Started GET "/api/refresh/TSLA" for 127.0.0.1 at 2018-04-12 18:17:17 -0400
+Processing by PortfoliosController#refresh as HTML
+  Parameters: {"id"=>"AAPL"}
+Processing by PortfoliosController#refresh as HTML
+  Parameters: {"id"=>"TSLA"}
+Completed 200 OK in 291ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 266ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/api/update/MSFT" for 127.0.0.1 at 2018-04-12 18:17:17 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"MSFT", "current_price"=>93.58, "id"=>"MSFT", "portfolio"=>{"ticker"=>"MSFT", "current_price"=>93.58}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPortfolio Load (1.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "MSFT"], ["LIMIT", 1]]
+Started PUT "/api/update/AAPL" for 127.0.0.1 at 2018-04-12 18:17:17 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"AAPL", "current_price"=>174.14, "id"=>"AAPL", "portfolio"=>{"ticker"=>"AAPL", "current_price"=>174.14}}
+  [1m[35m (3.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPortfolio Load (1.1ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "AAPL"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (17.7ms)[0m  [1m[33mUPDATE "portfolios" SET "current_price" = $1, "updated_at" = $2 WHERE "portfolios"."id" = $3[0m  [["current_price", "174.14"], ["updated_at", "2018-04-12 22:17:17.664278"], ["id", 1]]
+  [1m[35mSQL (28.5ms)[0m  [1m[33mUPDATE "portfolios" SET "current_price" = $1, "updated_at" = $2 WHERE "portfolios"."id" = $3[0m  [["current_price", "93.58"], ["updated_at", "2018-04-12 22:17:17.644229"], ["id", 3]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 60ms (Views: 0.7ms | ActiveRecord: 36.6ms)
+
+
+Completed 200 OK in 48ms (Views: 1.1ms | ActiveRecord: 22.0ms)
+
+
+Completed 200 OK in 3444ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/api/update/TSLA" for 127.0.0.1 at 2018-04-12 18:17:20 -0400
+Processing by PortfoliosController#update as HTML
+  Parameters: {"ticker"=>"TSLA", "current_price"=>294.08, "id"=>"TSLA", "portfolio"=>{"ticker"=>"TSLA", "current_price"=>294.08}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPortfolio Load (2.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."ticker" = $1 LIMIT $2[0m  [["ticker", "TSLA"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (4.2ms)[0m  [1m[33mUPDATE "portfolios" SET "current_price" = $1, "updated_at" = $2 WHERE "portfolios"."id" = $3[0m  [["current_price", "294.08"], ["updated_at", "2018-04-12 22:17:20.871585"], ["id", 2]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 14ms (Views: 0.6ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:17:31 -0400
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:17:31 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (2.6ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 7ms (Views: 1.0ms | ActiveRecord: 3.1ms)
+
+
+Completed 200 OK in 3633ms (Views: 532.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:18:12 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:18:12 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+  [1m[36mUser Load (17.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (54.0ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 119ms (Views: 1.0ms | ActiveRecord: 71.2ms)
+
+
+Completed 200 OK in 3565ms (Views: 416.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:18:24 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:18:24 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+  [1m[36mUser Load (20.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (158.6ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 185ms (Views: 1.4ms | ActiveRecord: 179.4ms)
+
+
+Completed 200 OK in 3315ms (Views: 353.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:19:53 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:19:53 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+  [1m[36mUser Load (206.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (12.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 289ms (Views: 0.9ms | ActiveRecord: 218.9ms)
+
+
+Completed 200 OK in 3670ms (Views: 389.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:20:11 -0400
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:20:11 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (62.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 66ms (Views: 1.0ms | ActiveRecord: 63.0ms)
+
+
+Completed 200 OK in 4171ms (Views: 405.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:21:24 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:21:24 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (17.7ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 55ms (Views: 1.2ms | ActiveRecord: 24.6ms)
+
+
+Completed 200 OK in 3661ms (Views: 388.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:21:52 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:21:52 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (29.5ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 66ms (Views: 0.8ms | ActiveRecord: 34.0ms)
+
+
+Completed 200 OK in 4099ms (Views: 453.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:22:21 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:22:21 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+  [1m[36mUser Load (22.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (161.2ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 190ms (Views: 0.8ms | ActiveRecord: 183.2ms)
+
+
+Completed 200 OK in 3526ms (Views: 376.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:23:55 -0400
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:23:55 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (26.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 52ms (Views: 1.0ms | ActiveRecord: 27.0ms)
+
+
+Completed 200 OK in 3803ms (Views: 377.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:26:57 -0400
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:26:57 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+  [1m[36mUser Load (10.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (77.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 124ms (Views: 0.8ms | ActiveRecord: 87.7ms)
+
+
+Completed 200 OK in 3943ms (Views: 404.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:27:36 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:27:36 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+  [1m[36mSearch Load (33.1ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 37ms (Views: 0.9ms | ActiveRecord: 33.6ms)
+
+
+Completed 200 OK in 3714ms (Views: 383.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:27:44 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:27:44 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (11.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 68ms (Views: 0.8ms | ActiveRecord: 11.9ms)
+
+
+Completed 200 OK in 4085ms (Views: 398.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:27:56 -0400
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:27:56 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (11.7ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 21ms (Views: 1.1ms | ActiveRecord: 17.0ms)
+
+
+Completed 200 OK in 3616ms (Views: 391.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:30:59 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:30:59 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+  [1m[36mSearch Load (26.7ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 32ms (Views: 1.3ms | ActiveRecord: 27.8ms)
+
+
+Completed 200 OK in 3465ms (Views: 404.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:31:52 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:31:52 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+  [1m[36mUser Load (20.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (83.8ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 112ms (Views: 1.1ms | ActiveRecord: 104.1ms)
+
+
+Completed 200 OK in 3404ms (Views: 396.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:36:45 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (9.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (60.5ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 73ms (Views: 0.8ms | ActiveRecord: 69.6ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:42:50 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (11.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 148ms (Views: 0.9ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:48:10 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:48:10 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+  [1m[36mUser Load (24.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (79.5ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 107ms (Views: 0.8ms | ActiveRecord: 103.6ms)
+
+
+Completed 200 OK in 3082ms (Views: 354.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:48:36 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (1.7ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 9ms (Views: 0.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:48:36 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:48:39 -0400
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:48:39 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (17.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (213.8ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 239ms (Views: 0.8ms | ActiveRecord: 231.3ms)
+
+
+Completed 200 OK in 3992ms (Views: 808.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:48:42 -0400
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:48:42 -0400
+Processing by SearchesController#search as HTML
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (3.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 7ms (Views: 0.8ms | ActiveRecord: 3.7ms)
+
+
+Completed 200 OK in 3515ms (Views: 379.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:48:45 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:48:45 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (125.7ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 151ms (Views: 1.0ms | ActiveRecord: 126.6ms)
+
+
+Completed 200 OK in 3732ms (Views: 596.1ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 3823ms (Views: 412.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:50:20 -0400
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:50:20 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+  [1m[36mUser Load (18.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (64.1ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 87ms (Views: 0.8ms | ActiveRecord: 83.0ms)
+
+
+Completed 200 OK in 3615ms (Views: 376.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:51:58 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (1.8ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:51:58 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+Completed 200 OK in 3722ms (Views: 413.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:54:13 -0400
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:54:13 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (5.8ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 77ms (Views: 0.9ms | ActiveRecord: 10.3ms)
+
+
+Completed 200 OK in 2938ms (Views: 398.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:55:34 -0400
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:55:34 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+  [1m[36mUser Load (8.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (17.8ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 47ms (Views: 0.8ms | ActiveRecord: 25.9ms)
+
+
+Completed 200 OK in 4825ms (Views: 390.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:56:43 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:56:43 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (110.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 133ms (Views: 0.8ms | ActiveRecord: 111.4ms)
+
+
+Completed 200 OK in 4196ms (Views: 405.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:59:22 -0400
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 18:59:22 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+  [1m[36mUser Load (55.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (4.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 83ms (Views: 1.0ms | ActiveRecord: 59.9ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 18:59:25 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 18:59:25 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (29.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (102.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 431ms (Views: 102.6ms | ActiveRecord: 131.8ms)
+
+
+Completed 200 OK in 3596ms (Views: 536.4ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 1607ms (Views: 142.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:01:13 -0400
+Started GET "/api/data/AAPL" for 127.0.0.1 at 2018-04-12 19:01:13 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"AAPL"}
+  [1m[36mUser Load (12.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (9.9ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 42ms (Views: 1.1ms | ActiveRecord: 22.5ms)
+
+
+Completed 200 OK in 6084ms (Views: 401.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:04:45 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:04:45 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (16.8ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 48ms (Views: 0.8ms | ActiveRecord: 17.8ms)
+
+
+Completed 200 OK in 1753ms (Views: 144.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:04:58 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:04:58 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (24.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (114.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 145ms (Views: 1.2ms | ActiveRecord: 138.3ms)
+
+
+Completed 200 OK in 1783ms (Views: 221.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:05:07 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:05:07 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mSearch Load (31.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 36ms (Views: 1.0ms | ActiveRecord: 32.4ms)
+
+
+Completed 200 OK in 3135ms (Views: 179.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:05:30 -0400
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:05:30 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (18.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (121.0ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 144ms (Views: 0.8ms | ActiveRecord: 139.2ms)
+
+
+Completed 200 OK in 1656ms (Views: 196.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:19:22 -0400
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:19:22 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+Completed 200 OK in 1398ms (Views: 194.6ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (21.8ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 1494ms (Views: 1.7ms | ActiveRecord: 59.1ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:21:19 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:21:19 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (20.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (15.8ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 39ms (Views: 0.9ms | ActiveRecord: 35.8ms)
+
+
+Completed 200 OK in 1779ms (Views: 198.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:21:28 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:21:28 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (3.6ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 44ms (Views: 0.8ms | ActiveRecord: 5.1ms)
+
+
+Completed 200 OK in 1732ms (Views: 153.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:22:11 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:22:11 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (102.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (16.6ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 148ms (Views: 1.0ms | ActiveRecord: 119.5ms)
+
+
+Completed 200 OK in 1130ms (Views: 155.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:22:40 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:22:40 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (7.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (16.0ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 89ms (Views: 0.8ms | ActiveRecord: 23.8ms)
+
+
+Completed 200 OK in 1506ms (Views: 166.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:23:39 -0400
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:23:39 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (76.0ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 100ms (Views: 1.0ms | ActiveRecord: 81.1ms)
+
+
+Completed 200 OK in 1552ms (Views: 148.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:24:29 -0400
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:24:29 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (11.1ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 17ms (Views: 0.8ms | ActiveRecord: 11.6ms)
+
+
+Completed 200 OK in 1766ms (Views: 163.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:24:51 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:24:51 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mSearch Load (25.2ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 32ms (Views: 0.9ms | ActiveRecord: 25.6ms)
+
+
+Completed 200 OK in 1488ms (Views: 171.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:26:05 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:26:05 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (24.8ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 112ms (Views: 0.8ms | ActiveRecord: 25.2ms)
+
+
+Completed 200 OK in 1843ms (Views: 159.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:27:01 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:27:01 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (23.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (85.1ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 112ms (Views: 0.8ms | ActiveRecord: 108.2ms)
+
+
+Completed 200 OK in 1987ms (Views: 249.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:27:07 -0400
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:27:07 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (44.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (38.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 108ms (Views: 2.6ms | ActiveRecord: 82.6ms)
+
+
+Completed 200 OK in 1718ms (Views: 185.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:27:12 -0400
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:27:12 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (19.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (9.5ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 33ms (Views: 1.0ms | ActiveRecord: 29.4ms)
+
+
+Completed 200 OK in 1358ms (Views: 163.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:27:17 -0400
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:27:17 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (16.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (25.2ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 64ms (Views: 1.2ms | ActiveRecord: 41.5ms)
+
+
+Completed 200 OK in 1738ms (Views: 178.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:27:24 -0400
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:27:24 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (21.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (42.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 68ms (Views: 1.0ms | ActiveRecord: 63.4ms)
+
+
+Completed 200 OK in 1792ms (Views: 177.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:28:10 -0400
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:28:10 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (7.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (147.1ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 179ms (Views: 0.9ms | ActiveRecord: 154.5ms)
+
+
+Completed 200 OK in 1565ms (Views: 154.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:28:26 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:28:26 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (72.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (11.6ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 112ms (Views: 1.2ms | ActiveRecord: 83.8ms)
+
+
+Completed 200 OK in 1747ms (Views: 197.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:29:02 -0400
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:29:02 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (5.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (4.7ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 34ms (Views: 1.0ms | ActiveRecord: 10.5ms)
+
+
+Completed 200 OK in 1686ms (Views: 151.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:29:13 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (1.8ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 13ms (Views: 0.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:29:13 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+Completed 200 OK in 1640ms (Views: 187.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:34:59 -0400
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:34:59 -0400
+Processing by SearchesController#search as HTML
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  Parameters: {"query"=>"AAPL"}
+Completed 200 OK in 1836ms (Views: 208.2ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (3.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 1861ms (Views: 1.1ms | ActiveRecord: 22.2ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:38:07 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:38:07 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (20.9ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 86ms (Views: 2.3ms | ActiveRecord: 21.4ms)
+
+
+Completed 200 OK in 1799ms (Views: 162.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:39:10 -0400
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:39:10 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (3.7ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 29ms (Views: 1.2ms | ActiveRecord: 4.7ms)
+
+
+Completed 200 OK in 1766ms (Views: 158.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:39:33 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:39:33 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (4.6ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 48ms (Views: 0.9ms | ActiveRecord: 5.3ms)
+
+
+Completed 200 OK in 1747ms (Views: 167.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:39:38 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:39:38 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (4.6ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 30ms (Views: 1.1ms | ActiveRecord: 6.5ms)
+
+
+Completed 200 OK in 1730ms (Views: 172.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:39:59 -0400
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:39:59 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (14.1ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 21ms (Views: 1.1ms | ActiveRecord: 15.1ms)
+
+
+Completed 200 OK in 1705ms (Views: 192.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:40:04 -0400
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:40:04 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (3.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 39ms (Views: 0.8ms | ActiveRecord: 4.6ms)
+
+
+Completed 200 OK in 1500ms (Views: 150.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:41:42 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:41:42 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (19.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (126.8ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 171ms (Views: 0.9ms | ActiveRecord: 146.1ms)
+
+
+Completed 200 OK in 1944ms (Views: 174.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:41:53 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:41:53 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (91.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 117ms (Views: 0.9ms | ActiveRecord: 94.2ms)
+
+
+Completed 200 OK in 1532ms (Views: 183.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:41:58 -0400
+Processing by SearchesController#search as HTML
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:41:58 -0400
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (18.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (59.0ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 82ms (Views: 1.0ms | ActiveRecord: 77.7ms)
+
+
+Completed 200 OK in 1366ms (Views: 159.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:42:09 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:42:09 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (48.9ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 98ms (Views: 1.0ms | ActiveRecord: 49.9ms)
+
+
+Completed 200 OK in 1898ms (Views: 177.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:42:58 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:42:58 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (35.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (48.7ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 88ms (Views: 0.9ms | ActiveRecord: 84.2ms)
+
+
+Completed 200 OK in 1451ms (Views: 173.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:43:51 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:43:51 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (9.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (3.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 113ms (Views: 1.0ms | ActiveRecord: 13.1ms)
+
+
+Completed 200 OK in 1840ms (Views: 165.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:44:12 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (2.0ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:44:12 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:44:13 -0400
+Processing by SearchesController#search as HTML
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:44:13 -0400
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (21.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (53.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 78ms (Views: 1.0ms | ActiveRecord: 74.5ms)
+
+
+Completed 200 OK in 1250ms (Views: 187.6ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 1755ms (Views: 171.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:44:36 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:44:36 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (23.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (181.6ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 213ms (Views: 0.9ms | ActiveRecord: 205.4ms)
+
+
+Completed 200 OK in 1665ms (Views: 164.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:45:02 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:45:02 -0400
+  [1m[36mSearch Load (4.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 11ms (Views: 3.8ms | ActiveRecord: 4.8ms)
+
+
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+Completed 200 OK in 1960ms (Views: 174.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:46:17 -0400
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:46:17 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (14.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (88.2ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 126ms (Views: 1.3ms | ActiveRecord: 102.4ms)
+
+
+Completed 200 OK in 1337ms (Views: 173.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:46:28 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:46:28 -0400
+Processing by PortfoliosController#chart as HTML
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mSearch Load (20.7ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 34ms (Views: 1.2ms | ActiveRecord: 23.8ms)
+
+
+Completed 200 OK in 1626ms (Views: 150.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:46:48 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:46:48 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (7.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 33ms (Views: 1.8ms | ActiveRecord: 8.8ms)
+
+
+Completed 200 OK in 1771ms (Views: 192.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:49:15 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:49:15 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mSearch Load (5.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 32ms (Views: 23.7ms | ActiveRecord: 5.9ms)
+
+
+Completed 200 OK in 1661ms (Views: 160.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:49:43 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (3.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 8ms (Views: 1.0ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:49:43 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+Completed 200 OK in 1627ms (Views: 185.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:50:10 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:50:10 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (22.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (34.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 61ms (Views: 1.4ms | ActiveRecord: 56.4ms)
+
+
+Completed 200 OK in 1692ms (Views: 189.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:50:32 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (3.8ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 8ms (Views: 0.9ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:50:32 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+Completed 200 OK in 1790ms (Views: 163.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:50:38 -0400
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:50:38 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (9.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (89.8ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 126ms (Views: 2.7ms | ActiveRecord: 99.4ms)
+
+
+Completed 200 OK in 1867ms (Views: 175.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:53:09 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:53:09 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mSearch Load (44.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 48ms (Views: 1.1ms | ActiveRecord: 44.7ms)
+
+
+Completed 200 OK in 1751ms (Views: 198.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:54:21 -0400
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:54:21 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (35.1ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 61ms (Views: 1.8ms | ActiveRecord: 37.6ms)
+
+
+Completed 200 OK in 1312ms (Views: 165.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 19:55:19 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 19:55:19 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (9.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (25.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 62ms (Views: 1.0ms | ActiveRecord: 35.3ms)
+
+
+Completed 200 OK in 1662ms (Views: 167.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 20:02:48 -0400
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 20:02:48 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (5.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 16ms (Views: 1.0ms | ActiveRecord: 10.3ms)
+
+
+Completed 200 OK in 3473ms (Views: 152.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 20:03:22 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 20:03:22 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mSearch Load (21.6ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 29ms (Views: 0.8ms | ActiveRecord: 22.5ms)
+
+
+Completed 200 OK in 3285ms (Views: 166.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 20:03:35 -0400
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-12 20:03:35 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (11.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (56.2ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 79ms (Views: 3.3ms | ActiveRecord: 67.5ms)
+
+
+Completed 200 OK in 2233ms (Views: 168.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 20:03:51 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/TSLA" for 127.0.0.1 at 2018-04-12 20:03:51 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"TSLA"}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (67.0ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 106ms (Views: 1.0ms | ActiveRecord: 70.0ms)
+
+
+Completed 200 OK in 3289ms (Views: 73.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 20:04:57 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Started GET "/api/data/TSLA" for 127.0.0.1 at 2018-04-12 20:04:57 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"TSLA"}
+  [1m[36mSearch Load (24.8ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 30ms (Views: 0.9ms | ActiveRecord: 25.4ms)
+
+
+Completed 200 OK in 1172ms (Views: 76.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 20:05:02 -0400
+Started GET "/api/data/TSLA" for 127.0.0.1 at 2018-04-12 20:05:02 -0400
+Processing by SearchesController#search as HTML
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"TSLA"}
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (16.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (117.8ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 147ms (Views: 1.0ms | ActiveRecord: 134.2ms)
+
+
+Completed 200 OK in 2466ms (Views: 77.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 20:05:16 -0400
+Started GET "/api/data/BOX" for 127.0.0.1 at 2018-04-12 20:05:16 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"BOX"}
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (89.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 99ms (Views: 0.9ms | ActiveRecord: 90.6ms)
+
+
+Completed 200 OK in 1147ms (Views: 34.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 20:06:26 -0400
+Started GET "/api/data/BOX" for 127.0.0.1 at 2018-04-12 20:06:26 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"BOX"}
+  [1m[36mUser Load (10.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (7.9ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 41ms (Views: 1.4ms | ActiveRecord: 17.8ms)
+
+
+Completed 200 OK in 764ms (Views: 46.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 20:06:58 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/BOX" for 127.0.0.1 at 2018-04-12 20:06:58 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"BOX"}
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (6.6ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 37ms (Views: 1.2ms | ActiveRecord: 12.8ms)
+
+
+Completed 200 OK in 740ms (Views: 31.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/data/BOX" for 127.0.0.1 at 2018-04-12 20:07:16 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"BOX"}
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 20:07:16 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (23.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (5.0ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 68ms (Views: 0.9ms | ActiveRecord: 28.3ms)
+
+
+Completed 200 OK in 662ms (Views: 36.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 20:08:26 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (3.1ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 7ms (Views: 1.0ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/api/data/BOX" for 127.0.0.1 at 2018-04-12 20:08:26 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"BOX"}
+Completed 200 OK in 643ms (Views: 40.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 20:08:44 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (3.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 7ms (Views: 1.0ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/api/data/BOX" for 127.0.0.1 at 2018-04-12 20:08:44 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"BOX"}
+Completed 200 OK in 593ms (Views: 38.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 20:09:02 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (1.8ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 12ms (Views: 0.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/data/BOX" for 127.0.0.1 at 2018-04-12 20:09:02 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"BOX"}
+Completed 200 OK in 794ms (Views: 38.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 20:09:05 -0400
+Started GET "/api/data/BOX" for 127.0.0.1 at 2018-04-12 20:09:05 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"BOX"}
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (61.3ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 88ms (Views: 0.9ms | ActiveRecord: 64.2ms)
+
+
+Completed 200 OK in 694ms (Views: 34.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 20:09:22 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/BOX" for 127.0.0.1 at 2018-04-12 20:09:22 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"BOX"}
+  [1m[36mUser Load (199.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (20.5ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 224ms (Views: 1.1ms | ActiveRecord: 219.9ms)
+
+
+Completed 200 OK in 550ms (Views: 42.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-12 20:09:26 -0400
+Started GET "/api/data/BOX" for 127.0.0.1 at 2018-04-12 20:09:26 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"BOX"}
+  [1m[36mUser Load (24.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (15.4ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 44ms (Views: 0.8ms | ActiveRecord: 39.6ms)
+
+
+Completed 200 OK in 545ms (Views: 37.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/data/BOX" for 127.0.0.1 at 2018-04-13 08:36:48 -0400
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-13 08:36:48 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"BOX"}
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+  [1m[36mUser Load (51.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (10.1ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 92ms (Views: 5.6ms | ActiveRecord: 61.9ms)
+
+
+Completed 200 OK in 651ms (Views: 88.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/search/AAPL" for 127.0.0.1 at 2018-04-13 08:36:52 -0400
+Processing by SearchesController#search as HTML
+  Parameters: {"query"=>"AAPL"}
+Started GET "/api/data/NFLX" for 127.0.0.1 at 2018-04-13 08:36:52 -0400
+Processing by PortfoliosController#chart as HTML
+  Parameters: {"id"=>"NFLX"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSearch Load (73.2ms)[0m  [1m[34mSELECT "searches".* FROM "searches" WHERE (search_name LIKE '%AAPL%')[0m
+Completed 200 OK in 116ms (Views: 0.9ms | ActiveRecord: 75.3ms)
+
+
+Completed 200 OK in 1550ms (Views: 287.5ms | ActiveRecord: 0.0ms)
+
+
