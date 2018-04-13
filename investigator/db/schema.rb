@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180411172614) do
+ActiveRecord::Schema.define(version: 20180413150228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "portfolios", force: :cascade do |t|
-    t.integer "user_id"
     t.string "ticker"
     t.string "stock_name"
     t.string "exchange"
@@ -25,7 +24,7 @@ ActiveRecord::Schema.define(version: 20180411172614) do
     t.decimal "current_price", precision: 10, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_portfolios_on_user_id"
+    t.integer "user_id"
   end
 
   create_table "searches", force: :cascade do |t|

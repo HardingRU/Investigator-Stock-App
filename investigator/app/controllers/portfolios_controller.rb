@@ -33,6 +33,10 @@ class PortfoliosController < ApplicationController
     }
   end
 
+  def download
+    redirect_to "https://www.quandl.com/api/v3/datasets/EOD/#{params[:id]}.csv?api_key=xPogPiUBWzoPHWujv1Jb"
+  end
+
   def destroy
     @portfolio = Portfolio.find(params[:id])
     @portfolio.delete

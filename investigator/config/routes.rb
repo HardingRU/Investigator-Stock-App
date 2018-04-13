@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   put "api/portfolio/:id", to: "portfolios#refresh"
   put "api/update/:id", to: "portfolios#update"
   get "api/search/:query", to: "searches#search"
+
   #post "api/user_token", to: 'user_token#create'
 
   #resource :portfolio, path: "api/portfolio"
