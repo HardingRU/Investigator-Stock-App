@@ -2,7 +2,8 @@
 import React, { Component }from 'react';
 import Services from '../services';
 import {Line} from 'react-chartjs-2';
-import { Redirect } from 'react-router'
+import { Redirect } from 'react-router';
+import { ExcelFile, ExcelSheet } from "react-data-export";
 
 
 class ViewStock extends Component {
@@ -20,7 +21,7 @@ class ViewStock extends Component {
     this.storeData = this.storeData.bind(this);
     this.renderChart = this.renderChart.bind(this);
     this.renderData = this.renderData.bind(this);
-    this.handleRemove = this.handleRemove.bind(this);
+    this.addStock = this.addStock.bind(this);
     this.exportData = this.exportData.bind(this);
     this.rerender = this.rerender.bind(this);
     this.oneWeek = this.oneWeek.bind(this);
@@ -30,12 +31,6 @@ class ViewStock extends Component {
     this.oneYear = this.oneYear.bind(this);
     this.fiveYears = this.fiveYears.bind(this)
     this.max = this.max.bind(this)
-
-
-
-
-
-
   }
 
   storeData(input) {
@@ -67,7 +62,7 @@ class ViewStock extends Component {
     })
   }
 
-  handleRemove(e) {
+  addStock(e) {
     console.log("inside remove")
   }
 
@@ -139,10 +134,11 @@ class ViewStock extends Component {
           data: tempData
         }
     ]
-    this.setState({
+/*    this.setState({
       exportDataReady: true,
       exportData: multiDataSet
-    })
+    })*/
+    Services.export(this.props.match.params.ticker)
   }
 
   renderData() {
@@ -150,7 +146,7 @@ class ViewStock extends Component {
     rowList.push(<tbody className="tableData"><tr><th>Date</th><th>Open</th><th>High</th><th>Low</th><th>Close</th></tr></tbody>)
     console.log("rowList", rowList)
     for (let i = 0; i < this.state.apiData.length; i++) {
-      rowList.push(<tr key={i}>{this.state.apiData[i][0]} <td>{this.state.apiData[i][8]}</td> <td>{this.state.apiData[i][9]}</td> <td>{this.state.apiData[i][10]}</td> <td>{this.state.apiData[i][11]}</td> </tr>);
+      rowList.push(<tr key={i}>{this.state.apiData[i][0]}<td>{this.state.apiData[i][8]}</td><td>{this.state.apiData[i][9]}</td><td>{this.state.apiData[i][10]}</td><td>{this.state.apiData[i][11]}</td></tr>);
     }
     return rowList;
   }
@@ -247,7 +243,7 @@ class ViewStock extends Component {
       if(this.state.unauth === false) {
         return (
           <div>
-            <div><button name={this.props.match.params.ticker} onClick={this.handleRemove}>Add to Portfolio</button></div>
+            <div><button name={this.props.match.params.ticker} onClick={this.addStock}>Add to Portfolio</button></div>
             <div><button onClick={this.oneWeek}>1W</button>
                  <button onClick={this.oneMonth}>1M</button>
                  <button onClick={this.threeMonths}>3M</button>
@@ -256,7 +252,7 @@ class ViewStock extends Component {
                  <button onClick={this.fiveYears}>5Y</button>
                  <button onClick={this.max}>Max</button></div>
             <div> {this.state.apiDataLoaded ? this.renderChart() : <h1>Loading...</h1>} </div>
-            <div> {this.state.apiDataLoaded ? this.renderData() : <h1> </h1>} </div>
+            {this.state.apiDataLoaded ? this.renderData() : <h1> </h1>}
           </div>
         )
       }

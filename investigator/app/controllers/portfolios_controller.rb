@@ -10,7 +10,9 @@ class PortfoliosController < ApplicationController
   end
 
   def refresh
-    @response = HTTParty.get("https://www.quandl.com/api/v3/datasets/EOD/#{params[:id]}.json?limit=1&api_key=xPogPiUBWzoPHWujv1J")
+    puts "rails env"
+    puts ENV['QUANDL']
+    @response = HTTParty.get("https://www.quandl.com/api/v3/datasets/EOD/#{params[:id]}.json?limit=1&api_key=#{ENV['QUANDL']}")
     render json: {
       message: "data refreshed",
       data: @response
@@ -18,7 +20,8 @@ class PortfoliosController < ApplicationController
   end
 
   def chart
-    @response = HTTParty.get("https://www.quandl.com/api/v3/datasets/EOD/#{params[:id]}.json?api_key=xPogPiUBWzoPHWujv1J")
+
+    @response = HTTParty.get("https://www.quandl.com/api/v3/datasets/EOD/#{params[:id]}.json?api_key=#{ENV['QUANDL']}")
     render json: {
       message: "stock chart data",
       data: @response
