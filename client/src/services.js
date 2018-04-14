@@ -2,10 +2,20 @@
 import axios from 'axios';
 
 class Services {
-  getPortfolio() {
+  getPortfolio(user) {
     return axios({
       method: 'get',
-      url: '/api/portfolio',
+      url: `/api/portfolio/${user}`,
+      headers: {
+       'Authorization': localStorage.jwt,
+     }
+    })
+  }
+
+  findUser(email) {
+    return axios({
+      method: 'get',
+      url: `api/user/find/${email}`,
       headers: {
        'Authorization': localStorage.jwt,
      }

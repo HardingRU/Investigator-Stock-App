@@ -3,7 +3,6 @@ import React, { Component }from 'react';
 import Services from '../services';
 import {Line} from 'react-chartjs-2';
 import { Redirect } from 'react-router';
-import { ExcelFile, ExcelSheet } from "react-data-export";
 
 
 class ViewStock extends Component {

@@ -2,7 +2,7 @@ class PortfoliosController < ApplicationController
   include HTTParty
   before_action :authenticate_user, except: [:chart, :refresh]
   def index
-    @portfolios = Portfolio.all
+    @portfolios = User.find(params[:id]).portfolios
     render json: {
       message: "all portfolios",
       data: @portfolios
@@ -10,8 +10,6 @@ class PortfoliosController < ApplicationController
   end
 
   def refresh
-    puts "rails env"
-    puts ENV['QUANDL']
     @response = HTTParty.get("https://www.quandl.com/api/v3/datasets/EOD/#{params[:id]}.json?limit=1&api_key=#{ENV['QUANDL']}")
     render json: {
       message: "data refreshed",
@@ -20,8 +18,7 @@ class PortfoliosController < ApplicationController
   end
 
   def chart
-
-    @response = HTTParty.get("https://www.quandl.com/api/v3/datasets/EOD/#{params[:id]}.json?api_key=#{ENV['QUANDL']}")
+      @response = HTTParty.get("https://www.quandl.com/api/v3/datasets/EOD/#{params[:id]}.json?api_key=#{ENV['QUANDL']}")
     render json: {
       message: "stock chart data",
       data: @response
@@ -34,10 +31,6 @@ class PortfoliosController < ApplicationController
       message: "a portfolio",
       data: @portfolio
     }
-  end
-
-  def download
-    redirect_to "https://www.quandl.com/api/v3/datasets/EOD/#{params[:id]}.csv?api_key=xPogPiUBWzoPHWujv1Jb"
   end
 
   def destroy
@@ -74,8 +67,6 @@ def create
   end
 
   def portfolio_params_update
-      puts "params"
-      puts params
       params.require(:portfolio).permit(:ticker, :current_price)
   end
 

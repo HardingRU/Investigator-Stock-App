@@ -13,6 +13,11 @@ class UsersController < ApplicationController
     render json: @user
   end
 
+  def find
+    @found = User.find_by(email: params[:token])
+    render json: @found
+  end
+
   # POST /users
   def create
     @user = User.create(email: params[:email], password: params[:password], password_confirmation: params[:password])

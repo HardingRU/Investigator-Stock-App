@@ -24,6 +24,7 @@ class App extends Component {
     Services.login(request)
       .then(result => {
         localStorage.setItem("jwt", result.data.jwt)
+        localStorage.setItem("email", this.state.email)
         this.setState({
           apiDataLoaded: true
         })

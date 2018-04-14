@@ -11,13 +11,21 @@ class Portfolio extends Component {
     this.state = {
       apiDataLoaded: false,
       apiData: null,
-      unauth: false
+      unauth: false,
+      user_id: null
     }
   }
 
   UNSAFE_componentWillMount() {
     Services.cAuth()
       .then(data => {
+        Services.findUser(localStorage.email)
+        .then(response => {
+          this.setState({
+            user_id: response.data.id
+          })
+          console.log(this.state.user_id)
+        })
       })
       .catch(err => {
         console.log(err)
@@ -30,7 +38,7 @@ class Portfolio extends Component {
   }
 
   componentDidMount() {
-        Services.getPortfolio()
+        Services.getPortfolio(this.state.user_id)
             .then(data => {
               this.setState({
                 apiDataLoaded: true,
