@@ -277,21 +277,21 @@ class ViewStock extends Component {
             <div>
               <Header />
               <div className="chartButtons"> {this.state.owned
-                    ? <button name={this.props.match.params.ticker} onClick={this.editStock}>Edit Holdings</button>
-                    : <button name={this.props.match.params.ticker} onClick={this.addStock}>Add to Portfolio</button>}</div>
+                    ? <button className="btn btn-xs" name={this.props.match.params.ticker} onClick={this.editStock}>Edit Holdings</button>
+                    : <button className="btn btn-xs"name={this.props.match.params.ticker} onClick={this.addStock}>Add to Portfolio</button>}</div>
 
               <div> {this.state.apiDataLoaded ? this.renderChart() : <h1>Loading...</h1>} </div>
 
               <div className="chartButtons">
                 {this.state.apiDataLoaded ?
                 <div>
-                  <button className="chartButton" onClick={this.oneWeek}>1W</button>
-                   <button className="chartButton" onClick={this.oneMonth}>1M</button>
-                   <button className="chartButton" onClick={this.threeMonths}>3M</button>
-                   <button className="chartButton" onClick={this.sixMonths}>6M</button>
-                   <button className="chartButton" onClick={this.oneYear}>1Y</button>
-                   <button className="chartButton" onClick={this.fiveYears}>5Y</button>
-                   <button className="chartButton" onClick={this.max}>Max</button>
+                  <button className="chartButton btn btn-xs " onClick={this.oneWeek}>1W</button>
+                   <button className="chartButton btn btn-xs " onClick={this.oneMonth}>1M</button>
+                   <button className="chartButton btn btn-xs " onClick={this.threeMonths}>3M</button>
+                   <button className="chartButton btn btn-xs " onClick={this.sixMonths}>6M</button>
+                   <button className="chartButton btn btn-xs " onClick={this.oneYear}>1Y</button>
+                   <button className="chartButton btn btn-xs " onClick={this.fiveYears}>5Y</button>
+                   <button className="chartButton btn btn-xs " onClick={this.max}>Max</button>
                  </div> : <h1></h1>}
               </div>
               {this.state.apiDataLoaded ? this.renderData() : <h1> </h1>}
