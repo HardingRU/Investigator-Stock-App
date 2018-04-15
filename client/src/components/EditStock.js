@@ -1,6 +1,8 @@
 import React, { Component }from 'react';
 import Services from '../services';
 import { Redirect } from 'react-router'
+import Header from './Header'
+import Footer from './Footer'
 
 class AddStock extends Component {
   constructor() {
@@ -87,15 +89,18 @@ class AddStock extends Component {
     if(this.state.addRedirect === false) {
       return (
         <div>
+          <Header />
+          <h2 className="centerMe">Edit in Portfolio</h2>
           { this.state.unauth === false
-          ? (<form onSubmit={this.handleFormSubmit}>
-              <input type='text' name='shares' onChange={this.handleInputChange} placeholder='Number of Shares' />
-              <input type='text' name='price' onChange={this.handleInputChange} placeholder='Price of Shares' />
-              <input type='submit' value="Edit"/>
+          ? (<form className="centerMe" onSubmit={this.handleFormSubmit}>
+              <input className="spaceMe" type='text' name='shares' onChange={this.handleInputChange} placeholder='Number of Shares' />
+              <input className="spaceMe" type='text' name='price' onChange={this.handleInputChange} placeholder='Price of Shares' />
+              <input className="spaceMe" type='submit' value="Edit"/>
             </form>)
           : <Redirect to="/"/>
         }
         {this.state.badInput ? <h1>Invalid input: please use numbers</h1> : <h1> </h1>}
+        <Footer />
         </div>
       )
     }

@@ -12,9 +12,12 @@ class App extends Component {
     this.state = {
       apiDataLoaded: false,
       email: null,
-      password: null
+      password: null,
+      badLogin: false
     }
     this.login = this.login.bind(this);
+    this.renderError = this.renderError.bind(this);
+
     this.handleInputChange = this.handleInputChange.bind(this);
 
   }
@@ -31,8 +34,18 @@ class App extends Component {
         console.log(result)
       })
       .catch(err => {
-        console.log(err);
+        this.setState({
+          badLogin: true
+        })
       })
+  }
+
+  renderError() {
+    return(
+    <div className="alert">
+      Invalid Credentials -- please try again.
+    </div>
+    )
   }
 
   handleInputChange(e) {
@@ -79,6 +92,7 @@ class App extends Component {
             </button>
           <br/>
           <div>Not signed up? <a href="/register">Click here</a> to register</div>
+          {this.state.badLogin ? this.renderError() : ""}
         </div>
       )
     }

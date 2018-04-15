@@ -22,6 +22,72 @@
   font-size: large;
 }
 
+body {
+  background-color: rgb(57, 207, 209)
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  background-color: rgb(34, 34, 34);
+  width: 100%;
+  padding: 0 0 0 50px;
+}
+
+.footerLink {
+  color: rgb(157, 157, 157)
+}
+
+.navItem {
+  padding: 0 0 0 240px;
+}
+
+.alert {
+  background-color: red;
+  color: white
+}
+
+.logo {
+  margin: -20px 0 0 0;
+}
+
+.searchH1 {
+  text-align: center;
+}
+
+.searchForm {
+  margin: 25px 0 0 0;
+  text-align: center;
+}
+
+.chartButtons {
+  text-align: center;
+}
+
+.chartButton {
+  margin: 10px 10px 10px 10px;
+}
+
+.result {
+  font-size: 10px;
+}
+
+.portButt {
+  margin: 0 10px 0 10px;
+}
+
+.centerMe {
+  text-align: center
+}
+
+.linker {
+  color: rgb(157, 157, 157)
+}
+
+.spaceMe {
+  margin: 0 10px 0 10px;
+}
+
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

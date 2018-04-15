@@ -3,6 +3,8 @@ import React, { Component }from 'react';
 import Services from '../services';
 import Stock from './PortfolioSingle'
 import { Redirect } from 'react-router'
+import Header from './Header'
+import Footer from './Footer'
 
 
 class Portfolio extends Component {
@@ -76,7 +78,8 @@ class Portfolio extends Component {
     }
 
     else {
-      return this.state.apiData.map(stock => <Stock {...stock} key={stock.id}/>)
+      return (
+        this.state.apiData.map(stock => <Stock {...stock} key={stock.id}/>))
 
     }
   }
@@ -85,8 +88,10 @@ class Portfolio extends Component {
     if (this.state.unauth === false) {
       return (
         <div>
-        Ticker Company Shares Owned Purchase Price Current Price LTD
+        <Header />
+        <h2 className="centerMe"> My Portfolio </h2>
         { this.state.apiDataLoaded ? this.renderStocks() : <h1>Loading...</h1>}
+        <Footer />
         </div>
       )
     }

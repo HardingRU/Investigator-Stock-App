@@ -49,9 +49,10 @@ class Stock extends Component {
       if(this.state.editRedirect === false) {
         return (
           <div>
+            
             <h3><Link to={`/stock/${this.props.ticker}`}>{this.props.ticker}</Link> {this.props.stock_name} {this.props.shares_owned} ${this.props.purchase_price} ${this.props.current_price} {this.state.ltd}%
-              <button onClick={this.edit}>Edit Holdings</button>
-              <button onClick={this.remove}>Delete Holdings</button>
+              <button className="btn btn-xs portButt" onClick={this.edit}>Edit Holdings</button>
+              <button className="btn btn-xs portButt" onClick={this.remove}>Delete Holdings</button>
             </h3>
           </div>
         )

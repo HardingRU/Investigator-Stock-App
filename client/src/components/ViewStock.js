@@ -3,8 +3,9 @@ import React, { Component }from 'react';
 import Services from '../services';
 import {Line} from 'react-chartjs-2';
 import { Redirect } from 'react-router';
-import Table from './Table'
-
+import ReactTable from 'react-table'
+import Header from './Header'
+import Footer from './Footer'
 
 class ViewStock extends Component {
   constructor() {
@@ -118,8 +119,37 @@ class ViewStock extends Component {
           options={{
             title:{
               display:true,
-              text: this.state.ticker + " Closing Stock Price"
-            }
+              text: this.state.ticker + " Closing Stock Price",
+              fontSize: 18,
+              fontColor: '#222'
+            },
+            legend: {
+              display: false
+            },
+            tooltips: {
+              enabled: false
+            },
+            layout: {
+              padding: 20
+            },
+            scales: {
+              xAxes: [{
+                ticks: {
+                  fontColor: "#222", // this here
+                },
+                gridLines: {
+                  color: "rgba(0, 0, 0, 0)",
+                }
+              }],
+              yAxes: [{
+                ticks: {
+                  fontColor: "#222", // this here
+                },
+                gridLines: {
+                  color: "rgba(0, 0, 0, 0)",
+                }
+              }],
+}
           }}
         />
       </div>
@@ -128,13 +158,29 @@ class ViewStock extends Component {
 
 
   renderData() {
-    var rowList = []
-    rowList.push(<tbody className="tableData"><tr><th>Date</th><th>Open</th><th>High</th><th>Low</th><th>Close</th></tr></tbody>)
-    console.log("rowList", rowList)
-    for (let i = 0; i < this.state.apiData.length; i++) {
-      rowList.push(<tr key={i}>{this.state.apiData[i][0]}<td>{this.state.apiData[i][8]}</td><td>{this.state.apiData[i][9]}</td><td>{this.state.apiData[i][10]}</td><td>{this.state.apiData[i][11]}</td></tr>);
+
+    const data = []
+    for (let i =0; i < this.state.apiData.length; i++) {
+      let temp = {}
+      temp.date = this.state.apiData[i][0]
+      temp.open = this.state.apiData[i][8]
+      temp.high = this.state.apiData[i][9]
+      temp.low = this.state.apiData[i][10]
+      temp.close = this.state.apiData[i][11]
+      data.push(temp)
     }
-    return rowList;
+    const columns = [{Header: 'Date', accessor: 'date'},{Header: 'Open', accessor: 'open'}, {Header: 'High', accessor: 'high'}, {Header: 'Low', accessor: 'low'}, {Header: "Close", accessor: 'close'}]
+    // var rowList = []
+    // rowList.push(<tbody className="tableData"><tr><th>Date</th><th>Open</th><th>High</th><th>Low</th><th>Close</th></tr></tbody>)
+    // console.log("rowList", rowList)
+    // for (let i = 0; i < this.state.apiData.length; i++) {
+    //   rowList.push(<tr className="row" key={i}><td>{this.state.apiData[i][0]}</td><td>{this.state.apiData[i][8]}</td><td>{this.state.apiData[i][9]}</td><td>{this.state.apiData[i][10]}</td><td>{this.state.apiData[i][11]}</td></tr>);
+    // }
+    // return rowList;
+    console.log("data to chart", data)
+    return (
+      <ReactTable data={data} columns={columns}/>
+    )
   }
 
   rerender(num) {
@@ -229,17 +275,25 @@ class ViewStock extends Component {
         if(this.state.unauth === false) {
           return (
             <div>
-              <div> {this.state.owned
+              <Header />
+              <div className="chartButtons"> {this.state.owned
                     ? <button name={this.props.match.params.ticker} onClick={this.editStock}>Edit Holdings</button>
                     : <button name={this.props.match.params.ticker} onClick={this.addStock}>Add to Portfolio</button>}</div>
-              <div><button onClick={this.oneWeek}>1W</button>
-                   <button onClick={this.oneMonth}>1M</button>
-                   <button onClick={this.threeMonths}>3M</button>
-                   <button onClick={this.sixMonths}>6M</button>
-                   <button onClick={this.oneYear}>1Y</button>
-                   <button onClick={this.fiveYears}>5Y</button>
-                   <button onClick={this.max}>Max</button></div>
+
               <div> {this.state.apiDataLoaded ? this.renderChart() : <h1>Loading...</h1>} </div>
+
+              <div className="chartButtons">
+                {this.state.apiDataLoaded ?
+                <div>
+                  <button className="chartButton" onClick={this.oneWeek}>1W</button>
+                   <button className="chartButton" onClick={this.oneMonth}>1M</button>
+                   <button className="chartButton" onClick={this.threeMonths}>3M</button>
+                   <button className="chartButton" onClick={this.sixMonths}>6M</button>
+                   <button className="chartButton" onClick={this.oneYear}>1Y</button>
+                   <button className="chartButton" onClick={this.fiveYears}>5Y</button>
+                   <button className="chartButton" onClick={this.max}>Max</button>
+                 </div> : <h1></h1>}
+              </div>
               {this.state.apiDataLoaded ? this.renderData() : <h1> </h1>}
             </div>
           )

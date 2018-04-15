@@ -2,6 +2,8 @@ import React, { Component }from 'react';
 import Services from '../services';
 import SearchResult from './SearchResult'
 import { Redirect } from 'react-router'
+import Header from './Header'
+import Footer from './Footer'
 
 class Search extends Component {
   constructor() {
@@ -63,10 +65,12 @@ class Search extends Component {
   render() {
     return (
       <div>
+        <Header />
+        <h2 className="searchH1">Search by Company Name</h2>
         { this.state.unauth === false ?
-        (<form onSubmit={this.handleFormSubmit}>
+        (<form className="searchForm" onSubmit={this.handleFormSubmit}>
           <input type='text' name='query' onChange={this.handleInputChange} placeholder='Enter Company Name' />
-          <input type='submit' value="Search"/>
+          <input type='submit' className="btn btn-xs portButt" value="Search"/>
         </form>) : <Redirect to="/"/>
       }
         { this.state.apiDataLoaded ? this.renderSearch() : '' }
