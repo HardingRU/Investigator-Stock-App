@@ -254,13 +254,13 @@ class ViewStock extends Component {
       labels: tempDates,
       datasets: [
         {
-          fillColor: "#25BDFF",
+          fillColor: "#999",
           strokeColor: "#25BDFF",
           pointColor: "#25BDFF",
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
           pointHighlightStroke: "#25BDFF",
-          data: tempData
+          data: tempData,
         }
       ]
     }

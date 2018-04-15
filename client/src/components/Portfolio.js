@@ -14,8 +14,10 @@ class Portfolio extends Component {
       apiDataLoaded: false,
       apiData: null,
       unauth: false,
-      user_id: null
+      user_id: null,
+      portfolioValue: null
     }
+    this.renderValue = this.renderValue.bind(this)
   }
 
   UNSAFE_componentWillMount() {
@@ -45,6 +47,7 @@ class Portfolio extends Component {
               apiDataLoaded: true,
               apiData: data.data.data,
             });
+            this.renderValue();
             for (let i=0; i<this.state.apiData.length; i++) {
                   Services.getLatestData(this.state.apiData[i].ticker, this.state.user_id)
                   .then(data2 => {
@@ -84,6 +87,18 @@ class Portfolio extends Component {
     }
   }
 
+  renderValue() {
+    let portfolioValue = null
+    for (let i=0; i<this.state.apiData.length; i++) {
+      console.log(this.state.apiData[i])
+      let tempValue = this.state.apiData[i].shares_owned * this.state.apiData[i].current_price
+      portfolioValue = portfolioValue + tempValue
+    }
+    this.setState({
+      portfolioValue: portfolioValue
+    })
+  }
+
   render() {
     if (this.state.unauth === false) {
       return (
@@ -91,6 +106,7 @@ class Portfolio extends Component {
         <Header />
         <h2 className="centerMe"> My Portfolio </h2>
         { this.state.apiDataLoaded ? this.renderStocks() : <h1>Loading...</h1>}
+        { this.state.portfolioValue ? <h2 className="portValue">Portfolio Value: ${this.state.portfolioValue}</h2> : <h2 className="portValue"></h2>}
         <Footer />
         </div>
       )
