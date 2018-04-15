@@ -15,9 +15,14 @@ class Portfolio extends Component {
       apiData: null,
       unauth: false,
       user_id: null,
-      portfolioValue: null
+      portfolioValue: null,
+      editRedirect: false,
+      deleted: false
     }
     this.renderValue = this.renderValue.bind(this)
+    this.remove = this.remove.bind(this)
+
+
   }
 
   UNSAFE_componentWillMount() {
@@ -81,10 +86,48 @@ class Portfolio extends Component {
     }
 
     else {
+      let retArray = []
+      retArray.push(<tr><th>Company</th><th>Shares Owned</th><th>Purchase Price</th><th>Current Price</th><th>LTD</th><th></th><th></th></tr>)
+      for (let i = 0; i < this.state.apiData.length; i++) {
+        let myLTD = ((this.state.apiData[i].current_price - this.state.apiData[i].purchase_price) / this.state.apiData[i].purchase_price) * 100
+        myLTD = myLTD.toFixed(2)
+        let editLink = "/edit/" + this.state.apiData[i].ticker
+        let stockLink = "/stock/" + this.state.apiData[i].ticker
+        retArray.push(<tr>
+                          <td><a href={stockLink}>{this.state.apiData[i].stock_name}</a></td>
+                          <td>{this.state.apiData[i].shares_owned}</td>
+                          <td>{this.state.apiData[i].purchase_price}</td>
+                          <td>{this.state.apiData[i].current_price}</td>
+                          <td>{myLTD}%</td>
+                          <td><a href={editLink}>Edit Holdings</a></td>
+                          <td>{<button id={this.state.apiData[i].ticker} className="btn btn-xs portButt buttColor" onClick={this.remove}>Delete Holdings</button>}</td>
+                      </tr>)
+      }
       return (
-        this.state.apiData.map(stock => <Stock {...stock} key={stock.id}/>))
-
+        retArray
+      )
     }
+
+    // else {
+    //   return (
+    //     this.state.apiData.map(stock => <Stock {...stock} key={stock.id}/>))
+    //
+    // }
+  }
+
+
+
+  remove(e) {
+    console.log("event", e.target.id)
+    Services.removeStock(e.target.id, localStorage.email)
+      .then(response => {
+        this.setState({
+          deleted: true
+        })
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   renderValue() {
@@ -100,22 +143,32 @@ class Portfolio extends Component {
   }
 
   render() {
-    if (this.state.unauth === false) {
-      return (
-        <div>
-        <Header />
-        <h2 className="centerMe"> My Portfolio </h2>
-        { this.state.apiDataLoaded ? this.renderStocks() : <h1>Loading...</h1>}
-        { this.state.portfolioValue ? <h2 className="portValue">Portfolio Value: ${this.state.portfolioValue}</h2> : <h2 className="portValue"></h2>}
-        <Footer />
-        </div>
-      )
+    if (this.state.deleted === false) {
+      if (this.state.unauth === false) {
+        return (
+          <div>
+          <Header />
+          <h2 className="centerMe"> My Portfolio </h2>
+          { this.state.portfolioValue ? <h2 className="portValue">Portfolio Value: ${this.state.portfolioValue}</h2> : <h2 className="portValue"></h2>}
+          <table className="portfolio Table">
+          { this.state.apiDataLoaded ? this.renderStocks() : <h1>Loading...</h1>}
+          </table>
+          <Footer />
+          </div>
+        )
+      }
+      else {
+        return (
+          <Redirect to="/"/>
+        )
+      }
     }
     else {
       return (
-        <Redirect to="/"/>
+        <Redirect to="/redirect"/>
       )
     }
+
   }
 }
 
