@@ -19,13 +19,6 @@ class Portfolio extends Component {
   UNSAFE_componentWillMount() {
     Services.cAuth()
       .then(data => {
-        Services.findUser(localStorage.email)
-        .then(response => {
-          this.setState({
-            user_id: response.data.id
-          })
-          console.log(this.state.user_id)
-        })
       })
       .catch(err => {
         console.log(err)
@@ -38,43 +31,61 @@ class Portfolio extends Component {
   }
 
   componentDidMount() {
-        Services.getPortfolio(this.state.user_id)
-            .then(data => {
-              this.setState({
-                apiDataLoaded: true,
-                apiData: data.data.data,
-              });
-              console.log("after state", this.state)
-              for (let i=0; i<this.state.apiData.length; i++) {
-                Services.getLatestData(this.state.apiData[i].ticker)
-                .then(data2 => {
-                  console.log(data2)
-                        Services.updateData(data2.data.data.dataset)
-                        .then(data3 => {
-                          console.log(data3)
-                        })
-                        .catch(err => {
-                          console.log("inside updateData", err)
-                        })
-                })
-                .catch(err => {
-                  console.log("inside getLatest", err)
-                })
-              }
-            })
-            .catch(err => {
-              console.log("inside getPort", err);
-            })
+    Services.findUser(localStorage.email)
+    .then(response => {
+      this.setState({
+        user_id: response.data.id
+      })
+
+      Services.getPortfolio(this.state.user_id)
+          .then(data => {
+            this.setState({
+              apiDataLoaded: true,
+              apiData: data.data.data,
+            });
+            for (let i=0; i<this.state.apiData.length; i++) {
+                  Services.getLatestData(this.state.apiData[i].ticker, this.state.user_id)
+                  .then(data2 => {
+                          Services.updateData(data2.data.data.dataset, this.state.user_id)
+                          .then(data3 => {
+                          })
+                          .catch(err => {
+                            console.log("inside updateData", err)
+                          })
+                  })
+                  .catch(err => {
+                    console.log("inside getLatest", err)
+                  })
+            }
+          })
+          .catch(err => {
+            console.log("inside getPort", err);
+          })
+
+
+    })
+    .catch(err => {
+      console.log(err)
+    })
+
   }
 
   renderStocks() {
-    return this.state.apiData.map(stock => <Stock {...stock} key={stock.id}/>)
+    if(this.state.apiData.length === 0) {
+      return (<h1>You currently have no stocks in your portfolio.  Use <a href ="/search">Search</a> to find and add stocks.</h1>)
+    }
+
+    else {
+      return this.state.apiData.map(stock => <Stock {...stock} key={stock.id}/>)
+
+    }
   }
 
   render() {
     if (this.state.unauth === false) {
       return (
         <div>
+        Ticker Company Shares Owned Purchase Price Current Price LTD
         { this.state.apiDataLoaded ? this.renderStocks() : <h1>Loading...</h1>}
         </div>
       )

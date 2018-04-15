@@ -3,6 +3,7 @@ import React, { Component }from 'react';
 import Services from '../services';
 import {Line} from 'react-chartjs-2';
 import { Redirect } from 'react-router';
+import Table from './Table'
 
 
 class ViewStock extends Component {
@@ -15,13 +16,15 @@ class ViewStock extends Component {
       ticker: null,
       unauth: false,
       exportDataReady: false,
-      exportData: null
+      exportData: null,
+      addTriggered: false,
+      owned: false
     }
     this.storeData = this.storeData.bind(this);
     this.renderChart = this.renderChart.bind(this);
     this.renderData = this.renderData.bind(this);
     this.addStock = this.addStock.bind(this);
-    this.exportData = this.exportData.bind(this);
+    this.editStock = this.addStock.bind(this);
     this.rerender = this.rerender.bind(this);
     this.oneWeek = this.oneWeek.bind(this);
     this.oneMonth = this.oneMonth.bind(this);
@@ -62,7 +65,9 @@ class ViewStock extends Component {
   }
 
   addStock(e) {
-    console.log("inside remove")
+    this.setState({
+      addTriggered: true
+    })
   }
 
   UNSAFE_componentWillMount() {
@@ -76,6 +81,17 @@ class ViewStock extends Component {
             unauth: true
           })
         }
+      })
+    Services.checkOwned(this.props.match.params.ticker, localStorage.email)
+      .then(response => {
+        if(response.data.data != null) {
+          this.setState({
+            owned: true
+          })
+        }
+      })
+      .then(err => {
+        console.log(err)
       })
   }
 
@@ -110,35 +126,6 @@ class ViewStock extends Component {
     )
   }
 
-  exportData() {
-    let tempData = []
-    for(let i = 0; i < this.state.apiData.length; i++) {
-      tempData.push(this.state.apiData[i][0])
-      tempData.push(this.state.apiData[i][1])
-      tempData.push(this.state.apiData[i][2])
-      tempData.push(this.state.apiData[i][3])
-      tempData.push(this.state.apiData[i][4])
-      tempData.push(this.state.apiData[i][5])
-      tempData.push(this.state.apiData[i][6])
-      tempData.push(this.state.apiData[i][7])
-      tempData.push(this.state.apiData[i][8])
-      tempData.push(this.state.apiData[i][9])
-      tempData.push(this.state.apiData[i][10])
-      tempData.push(this.state.apiData[i][11])
-      tempData.push(this.state.apiData[i][12])
-    }
-    const multiDataSet = [
-      {
-          columns: ["Date", "Open", "High", "Low", "Close", "Volume", "Dividend", "Split", "Adjusted Open", "Adjusted High", "Adjusted Low", "Adjusted Close", "Adjusted Volume"],
-          data: tempData
-        }
-    ]
-/*    this.setState({
-      exportDataReady: true,
-      exportData: multiDataSet
-    })*/
-    Services.export(this.props.match.params.ticker)
-  }
 
   renderData() {
     var rowList = []
@@ -231,7 +218,6 @@ class ViewStock extends Component {
         }
       ]
     }
-    console.log("temp", tempDates)
     this.setState({
       chartData: tempChart,
     })
@@ -239,28 +225,46 @@ class ViewStock extends Component {
 
 
   render() {
-      if(this.state.unauth === false) {
-        return (
-          <div>
-            <div><button name={this.props.match.params.ticker} onClick={this.addStock}>Add to Portfolio</button></div>
-            <div><button onClick={this.oneWeek}>1W</button>
-                 <button onClick={this.oneMonth}>1M</button>
-                 <button onClick={this.threeMonths}>3M</button>
-                 <button onClick={this.sixMonths}>6M</button>
-                 <button onClick={this.oneYear}>1Y</button>
-                 <button onClick={this.fiveYears}>5Y</button>
-                 <button onClick={this.max}>Max</button></div>
-            <div> {this.state.apiDataLoaded ? this.renderChart() : <h1>Loading...</h1>} </div>
-            {this.state.apiDataLoaded ? this.renderData() : <h1> </h1>}
-          </div>
-        )
+      if(this.state.addTriggered === false) {
+        if(this.state.unauth === false) {
+          return (
+            <div>
+              <div> {this.state.owned
+                    ? <button name={this.props.match.params.ticker} onClick={this.editStock}>Edit Holdings</button>
+                    : <button name={this.props.match.params.ticker} onClick={this.addStock}>Add to Portfolio</button>}</div>
+              <div><button onClick={this.oneWeek}>1W</button>
+                   <button onClick={this.oneMonth}>1M</button>
+                   <button onClick={this.threeMonths}>3M</button>
+                   <button onClick={this.sixMonths}>6M</button>
+                   <button onClick={this.oneYear}>1Y</button>
+                   <button onClick={this.fiveYears}>5Y</button>
+                   <button onClick={this.max}>Max</button></div>
+              <div> {this.state.apiDataLoaded ? this.renderChart() : <h1>Loading...</h1>} </div>
+              {this.state.apiDataLoaded ? this.renderData() : <h1> </h1>}
+            </div>
+          )
+        }
+
+        else {
+          return (
+            <Redirect to="/"/>
+          )
+        }
+      }
+      else {
+        if(this.state.owned === false) {
+          return (
+            <Redirect to={`/add/${this.props.match.params.ticker}`}/>
+          )
+        }
+        else {
+          return (
+            <Redirect to={`/edit/${this.props.match.params.ticker}`}/>
+          )
+        }
+
       }
 
-      else {
-        return (
-          <Redirect to="/"/>
-        )
-      }
     }
 
 

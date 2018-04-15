@@ -40,14 +40,30 @@ class Services {
     })
   }
 
-  getLatestData(ticker) {
-    return axios.get(`/api/refresh/${ticker}`)
+  getLatestData(ticker, user) {
+    return axios({
+      method: 'get',
+      url: `/api/refresh/${ticker}`,
+      headers: {
+       'Authorization': localStorage.jwt,
+     }
+    })
+  }
+
+  getYearEnd(ticker) {
+    return axios({
+      method: 'get',
+      url: `api/ytd/${ticker}`,
+      headers: {
+       'Authorization': localStorage.jwt,
+     }
+    })
   }
 
   updateData(input) {
     axios({
       method: 'put',
-      url: `/api/update/${input.dataset_code}`,
+      url: `/api/update/${input.dataset_code}/${localStorage.email}`,
       data: {
         ticker: input.dataset_code,
         current_price: input.data[0][11]
@@ -68,8 +84,46 @@ class Services {
     })
   }
 
+  addStock(input) {
+    return axios({
+      method: 'post',
+      url: `/api/portfolio/add`,
+      data: input,
+      headers: {
+       'Authorization': localStorage.jwt,
+     }
+    })
+  }
+
+  editStock(input) {
+    return axios({
+      method: 'put',
+      url: `/api/portfolio/edit`,
+      data: input,
+      headers: {
+       'Authorization': localStorage.jwt,
+     }
+    })
+  }
+
+  removeStock(ticker, user) {
+    return axios({
+      method: 'delete',
+      url: `/api/delete/${user}/${ticker}`,
+      headers: {
+       'Authorization': localStorage.jwt,
+     }
+    })
+  }
+
   getChart(ticker) {
-    return axios.get(`/api/data/${ticker}`)
+    return axios({
+      method: 'get',
+      url: `/api/data/${ticker}`,
+      headers: {
+       'Authorization': localStorage.jwt,
+     }
+    })
   }
 
   login(user_info) {
@@ -79,6 +133,17 @@ class Services {
       data: user_info
     })
   }
+
+  checkOwned(ticker, user) {
+    return axios({
+      method: 'get',
+      url: `/api/check/${user}/${ticker}`,
+      headers: {
+       'Authorization': localStorage.jwt,
+     }
+    })
+  }
+
 
 }
 

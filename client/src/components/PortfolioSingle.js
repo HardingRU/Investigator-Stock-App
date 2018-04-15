@@ -1,11 +1,74 @@
-import React from 'react';
+import React, { Component }from 'react';
 import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router';
+import Services from '../services';
 
-const Stock = (props) => {
-  return (
-    <div className="stock">
-      <h1><Link to={`/stock/${props.id}`}>{props.ticker}</Link> {props.stock_name} {props.exchange} {props.purchase_price} {props.current_price}</h1>
-    </div>
-  )
+
+
+class Stock extends Component {
+  constructor() {
+    super();
+    this.state = {
+      editRedirect: false,
+      deleted: false,
+      ltd: null
+    }
+    this.edit = this.edit.bind(this);
+    this.remove = this.remove.bind(this);
+  }
+
+  componentDidMount() {
+    let myLTD = (this.props.current_price / this.props.purchase_price) * 100
+    let myYTD = (this.props.current_price / this.props.ytd) * 100
+    this.setState({
+      ltd: myLTD.toFixed(2)
+
+    })
+  }
+
+  edit() {
+    this.setState({
+      editRedirect: true
+    })
+  }
+
+  remove() {
+    Services.removeStock(this.props.ticker, localStorage.email)
+      .then(response => {
+        this.setState({
+          deleted: true
+        })
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+  render() {
+    if(this.state.deleted === false) {
+      if(this.state.editRedirect === false) {
+        return (
+          <div>
+            <h3><Link to={`/stock/${this.props.ticker}`}>{this.props.ticker}</Link> {this.props.stock_name} {this.props.shares_owned} ${this.props.purchase_price} ${this.props.current_price} {this.state.ltd}%
+              <button onClick={this.edit}>Edit Holdings</button>
+              <button onClick={this.remove}>Delete Holdings</button>
+            </h3>
+          </div>
+        )
+      }
+      else {
+        return (
+          <Redirect to={`/edit/${this.props.ticker}`}/>
+        )
+      }
+    }
+    else {
+      return (
+        <Redirect to="/redirect"/>
+      )
+    }
+
+
+  }
 }
 export default Stock
