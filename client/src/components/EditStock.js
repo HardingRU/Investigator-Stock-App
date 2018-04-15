@@ -90,12 +90,12 @@ class AddStock extends Component {
       return (
         <div>
           <Header />
-          <h2 className="centerMe">Edit in Portfolio</h2>
+          <h2 className="centerMe">Edit {this.props.match.params.ticker} in Portfolio</h2>
           { this.state.unauth === false
           ? (<form className="centerMe" onSubmit={this.handleFormSubmit}>
               <input className="spaceMe" type='text' name='shares' onChange={this.handleInputChange} placeholder='Number of Shares' />
               <input className="spaceMe" type='text' name='price' onChange={this.handleInputChange} placeholder='Price of Shares' />
-              <input className="spaceMe" type='submit' value="Edit"/>
+              <input className="spaceMe btn btn-xs " type='submit' value="Edit"/>
             </form>)
           : <Redirect to="/"/>
         }

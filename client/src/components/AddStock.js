@@ -88,13 +88,13 @@ class AddStock extends Component {
       return (
         <div>
           <Header/>
-          <h2 className="centerMe">Add to Portfolio</h2>
+          <h2 className="centerMe">Add {this.props.match.params.ticker} to Portfolio</h2>
           { this.state.unauth === false
           ?
             (<form className="centerMe" onSubmit={this.handleFormSubmit}>
               <input className="spaceMe" type='text' name='shares' onChange={this.handleInputChange} placeholder='Number of Shares' />
               <input className="spaceMe" type='text' name='price' onChange={this.handleInputChange} placeholder='Price of Shares' />
-              <input className="spaceMe" type='submit' value="Add"/>
+              <input className="spaceMe btn btn-xs " type='submit' value="Add"/>
             </form>)
           : <Redirect to="/"/>
         }
