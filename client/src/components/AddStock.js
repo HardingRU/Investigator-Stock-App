@@ -98,7 +98,7 @@ class AddStock extends Component {
             </form>)
           : <Redirect to="/"/>
         }
-        {this.state.badInput ? <h1>Invalid input: please use numbers</h1> : <h1> </h1>}
+        {this.state.badInput ? <h3>Invalid input: please use numbers</h3> : <h1> </h1>}
         <Footer />
         </div>
       )
