@@ -39,7 +39,7 @@ class PortfoliosController < ApplicationController
     @stock.ticker = params[:ticker]
     @stock.shares_owned = params[:shares]
     @stock.purchase_price = params[:price]
-    @stock.current_price = params[:price]
+    @stock.current_price = 0
     @stock.exchange = "NA"
     id = User.find_by(email: params[:user])
     @stock.user_id = id[:id]

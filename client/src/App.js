@@ -69,8 +69,9 @@ class App extends Component {
           <h1 style={{marginTop: "20vh", marginBottom: "5vh"}}>
             Investigator
           </h1>
+          <img src="https://cdn.pixabay.com/photo/2012/04/30/10/13/alligator-44624_960_720.png" width="240" height="120"/>
           <form>
-            <label htmlFor="email">Email: </label>
+            <label htmlFor="email">User Name: </label>
             <br />
             <input name="email" id="email"
               type="email" onChange={this.handleInputChange}
