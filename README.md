@@ -1,3 +1,11 @@
+# Hosted app
+
+You can find the hosted app here:
+https://secret-badlands-93489.herokuapp.com/
+
+
+
+
 # Proposal
 
 My proposal is for a stock market portfolio app, which allows users to manage and track their stock investments.  The app name will be Investigator (and have an alligator logo!).
